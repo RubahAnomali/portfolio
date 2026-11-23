@@ -1,0 +1,11 @@
+node_modules
+dist
+*.local
+tsconfig.tsbuildinfo
+
+# The four games are their own repos; their builds are already copied into public/games (npm run sync:games).
+game dev porto/
+
+# local tooling and personal notes
+.claude/
+CONTENT-CHECKLIST.md

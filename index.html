@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio of RubahAnomali, web and game developer and cyber security student." />
+    <meta name="theme-color" content="#0b1013" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="darkreader-lock" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Cinzel:wght@500;700&family=Montserrat:wght@800&family=Noto+Sans:wght@400;700;900&family=Share+Tech+Mono&family=Syncopate:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      try {
+        var t = localStorage.getItem('theme');
+        document.documentElement.dataset.theme = t === 'light' || t === 'dark' ? t : 'dark';
+        if (t === 'light') {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#d3e2e6');
+          document.querySelector('meta[name="color-scheme"]').setAttribute('content', 'light');
+        }
+      } catch (e) {}
+      try {
+        // The saved choice lives under a new key ("motion-pref"): earlier builds saved an "off" choice under "motion",
+        // which kept animations off in a browser long after the default changed. Old values are now ignored.
+        var q = new URLSearchParams(location.search).get('motion');
+        if (q === 'full' || q === 'reduced') localStorage.setItem('motion-pref', q);
+        localStorage.removeItem('motion');
+        var m = localStorage.getItem('motion-pref');
+        // Animations are on unless the visitor switched them off with the nav button.
+        if (m !== 'reduced') m = 'full';
+        document.documentElement.dataset.motion = m;
+      } catch (e) {
+        document.documentElement.dataset.motion = 'full';
+      }
+    </script>
+    <title>RubahAnomali — Web & Game Developer</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
