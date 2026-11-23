@@ -14,6 +14,7 @@ export interface Social {
 export interface Project {
   title: string
   kind: string
+  /** Month and year shown next to the kind, e.g. 'Aug 2026'. */
   year: string
   summary: string
   tags: string[]
@@ -85,7 +86,7 @@ export const profile = {
   ],
   /** Optional portrait in /public (e.g. '/me.png'). */
   photo: undefined as string | undefined,
-  email: 'hello@example.com',
+  email: 'farrellfyelo@gmail.com',
   /** Path or URL of your résumé PDF (e.g. '/resume.pdf' in /public). Leave empty to hide the button. */
   resumeHref: '',
   location: 'Tangerang, Indonesia',
@@ -169,20 +170,16 @@ export const navItems: NavItem[] = allNavItems.filter((n) => n.id !== 'gallery' 
 export const socials: Social[] = [
   { label: 'GitHub', href: 'https://github.com/RubahAnomali', icon: 'github' },
   { label: 'Email', href: `mailto:${profile.email}`, icon: 'mail' },
-  // The strip on the right shows a slot for each of these. A slot with an empty href is drawn dimmed and is not
-  // a link. Paste your real URL to switch it on, e.g. 'https://www.youtube.com/@your-channel'.
-  { label: 'X', href: '', icon: 'x' },
-  { label: 'YouTube', href: '', icon: 'youtube' },
-  { label: 'Instagram', href: '', icon: 'instagram' },
-  { label: 'Discord', href: '', icon: 'discord' },
-  { label: 'TikTok', href: '', icon: 'tiktok' },
+  { label: 'Instagram', href: 'https://www.instagram.com/prlpyl/', icon: 'instagram' },
+  // To add another network, push an entry here; the right strip and the Contact slide pick it up. An entry with an
+  // empty href is drawn as an inactive icon in the strip and left out of Contact.
 ]
 
 export const updates: UpdateItem[] = [
-  { title: 'Slingshot Salvage — orbital salvage game', date: '2026.11.24', tag: 'Game', href: 'https://github.com/RubahAnomali/slingshot-salvage', cover: 'linear-gradient(120deg, #0a2a5e, #2a6fd6 60%, #e8c25a)', image: '/media/games/slingshot-salvage.jpg', video: '/media/games/slingshot-salvage.mp4' },
-  { title: 'Kinetic Courier — grapple-hook time trial', date: '2026.11.24', tag: 'Game', href: 'https://github.com/RubahAnomali/kinetic-courier', cover: 'linear-gradient(120deg, #2b2b2e, #c4562a 60%, #f0b27a)', image: '/media/games/kinetic-courier.jpg', video: '/media/games/kinetic-courier.mp4' },
-  { title: 'Cyber-Parry Arena — parry-driven arena action', date: '2026.11.24', tag: 'Game', href: 'https://github.com/RubahAnomali/cyber-parry-arena', cover: 'linear-gradient(120deg, #0b0f24, #1fb5d6 55%, #d63ad0)', image: '/media/games/cyber-parry-arena.jpg', video: '/media/games/cyber-parry-arena.mp4' },
-  { title: 'Breach Protocol — tactical room clearing', date: '2026.11.24', tag: 'Game', href: 'https://github.com/RubahAnomali/breach-protocol', cover: 'linear-gradient(120deg, #1a1d22, #4a5560 55%, #c0392b)', image: '/media/games/breach-protocol.jpg', video: '/media/games/breach-protocol.mp4' },
+  { title: 'Slingshot Salvage — orbital salvage game', date: '2026.11.10', tag: 'Game', href: 'https://github.com/RubahAnomali/slingshot-salvage', cover: 'linear-gradient(120deg, #0a2a5e, #2a6fd6 60%, #e8c25a)', image: '/media/games/slingshot-salvage.jpg', video: '/media/games/slingshot-salvage.mp4' },
+  { title: 'Kinetic Courier — grapple-hook time trial', date: '2026.10.12', tag: 'Game', href: 'https://github.com/RubahAnomali/kinetic-courier', cover: 'linear-gradient(120deg, #2b2b2e, #c4562a 60%, #f0b27a)', image: '/media/games/kinetic-courier.jpg', video: '/media/games/kinetic-courier.mp4' },
+  { title: 'Cyber-Parry Arena — parry-driven arena action', date: '2026.09.20', tag: 'Game', href: 'https://github.com/RubahAnomali/cyber-parry-arena', cover: 'linear-gradient(120deg, #0b0f24, #1fb5d6 55%, #d63ad0)', image: '/media/games/cyber-parry-arena.jpg', video: '/media/games/cyber-parry-arena.mp4' },
+  { title: 'Breach Protocol — tactical room clearing', date: '2026.08.15', tag: 'Game', href: 'https://github.com/RubahAnomali/breach-protocol', cover: 'linear-gradient(120deg, #1a1d22, #4a5560 55%, #c0392b)', image: '/media/games/breach-protocol.jpg', video: '/media/games/breach-protocol.mp4' },
 ]
 
 export const skillNodes: SkillNode[] = [
@@ -224,7 +221,7 @@ export const projects: Project[] = [
   {
     title: 'Breach Protocol',
     kind: 'Tactical game',
-    year: '2026',
+    year: 'Aug 2026',
     summary: 'Turn-based room clearing in the spirit of Into the Breach. Enemies telegraph their next move; you kill, shove or pin them to break it. Procedural art, synthesised sound, undo/redo.',
     tags: ['TypeScript', 'Canvas 2D', 'WebAudio', 'Vite'],
     links: [
@@ -238,7 +235,7 @@ export const projects: Project[] = [
   {
     title: 'Cyber-Parry Arena',
     kind: 'Action game',
-    year: '2026',
+    year: 'Sep 2026',
     summary: 'Top-down arena action. Deflect sniper rail shots back at their owners, stun lunges with a timed parry, dash through lines and flank shielded units.',
     tags: ['TypeScript', 'Canvas 2D', 'Utility AI', 'WebAudio'],
     links: [
@@ -252,7 +249,7 @@ export const projects: Project[] = [
   {
     title: 'Kinetic Courier',
     kind: '3D game',
-    year: '2026',
+    year: 'Oct 2026',
     summary: 'First-person, momentum-based grapple-hook time trial across a brutalist rooftop course. Spring-damper rope, wall-runs, drones and a ghost replay of your best run.',
     tags: ['TypeScript', 'Three.js', 'HFSM', 'Procedural'],
     links: [
@@ -266,7 +263,7 @@ export const projects: Project[] = [
   {
     title: 'Slingshot Salvage',
     kind: 'Physics game',
-    year: '2026',
+    year: 'Nov 2026',
     summary: 'A cyanotype-blueprint orbital salvage game. Tether pods, use free gravity, tow them to the drop zone and keep fuel, hull and cargo alive.',
     tags: ['TypeScript', 'Canvas 2D', 'Orbital physics', 'WebAudio'],
     links: [
@@ -282,28 +279,28 @@ export const projects: Project[] = [
 export const chapters: Chapter[] = [
   {
     no: '05',
-    period: '2026',
+    period: 'Nov 2026',
     role: 'Slingshot Salvage',
     company: 'Physics game · TypeScript, Canvas',
     points: ['Cyanotype-blueprint orbital salvage: tether pods, use gravity, tow them home.', 'Orbital physics, gravity-field visualisation and synthesised audio.'],
   },
   {
     no: '04',
-    period: '2026',
+    period: 'Oct 2026',
     role: 'Kinetic Courier',
     company: '3D game · TypeScript, Three.js',
     points: ['First-person grapple-hook time trial with a spring-damper rope and wall-runs.', 'Player state machine, EMP drones and ghost replay of your best run.'],
   },
   {
     no: '03',
-    period: '2026',
+    period: 'Sep 2026',
     role: 'Cyber-Parry Arena',
     company: 'Action game · TypeScript, Canvas',
     points: ['Parry-driven arena combat: deflect rail shots, stun lunges, dash through lines.', 'Utility-AI enemies and a debug HUD for tuning.'],
   },
   {
     no: '02',
-    period: '2026',
+    period: 'Aug 2026',
     role: 'Breach Protocol',
     company: 'Tactical game · TypeScript, Canvas',
     points: ['Turn-based room clearing where enemies telegraph their next move.', 'Exact-outcome previews, undo/redo and procedural art.'],

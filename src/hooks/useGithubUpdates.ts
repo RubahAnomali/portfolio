@@ -20,15 +20,18 @@ const COVERS = [
 const KEY = `gh-repos-${profile.githubUser}`
 const TTL = 10 * 60 * 1000
 
+/** This site's own repo is left out of its Updates list, so the newest item stays a game. */
+const SITE_REPO = 'portfolio'
+
 const toItems = (repos: Repo[]): UpdateItem[] =>
   repos
-    .filter((r) => !r.fork)
+    .filter((r) => !r.fork && r.name !== SITE_REPO)
     .slice(0, 20)
     .map((r, i) => {
-      const known = fallback.find((f) => f.href === r.html_url) // the four games keep their own cover and screenshot
+      const known = fallback.find((f) => f.href === r.html_url) // the four games keep their own date, cover, screenshot and clip
       return {
         title: `${r.name}${r.description ? ` — ${r.description}` : ''}`,
-        date: r.pushed_at.slice(0, 10).replace(/-/g, '.'),
+        date: known?.date ?? r.pushed_at.slice(0, 10).replace(/-/g, '.'),
         tag: r.language ?? 'Repo',
         href: r.html_url,
         cover: known?.cover ?? COVERS[i % COVERS.length],
@@ -36,6 +39,7 @@ const toItems = (repos: Repo[]): UpdateItem[] =>
         video: known?.video,
       }
     })
+    .sort((a, b) => b.date.localeCompare(a.date)) // newest first: a game's own date can differ from its push date
 
 /** Cached repo items from this session, or null when missing or older than TTL. */
 const readCache = (): UpdateItem[] | null => {
