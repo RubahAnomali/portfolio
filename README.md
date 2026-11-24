@@ -1,6 +1,6 @@
 # Portfolio
 
-The personal portfolio of **RubahAnomali**: web and game developer, cyber security student. A single page of full-screen slides, with dark and light themes, an animations switch, and four games you can play in the browser.
+The personal portfolio of **RubahAnomali**: web and game developer, cyber security student. A single page of full-screen slides, with dark and light themes, an animations switch, and five games you can play in the browser.
 
 **Live site: [rubahanomali.vercel.app](https://rubahanomali.vercel.app)**
 
@@ -27,14 +27,15 @@ The site is deployed on Vercel from this repository: every push to `main` builds
 
 ## The games
 
-Four games are playable from the Projects slide. Each one is its own repository:
+Five games are playable from the Projects slide. Each one is its own repository:
 
 - [Breach Protocol](https://github.com/RubahAnomali/breach-protocol): turn-based tactics
 - [Cyber-Parry Arena](https://github.com/RubahAnomali/cyber-parry-arena): top-down arena action
 - [Kinetic Courier](https://github.com/RubahAnomali/kinetic-courier): first-person grapple-hook time trial
 - [Slingshot Salvage](https://github.com/RubahAnomali/slingshot-salvage): orbital physics
+- [Packet Ghost](https://github.com/RubahAnomali/packet-ghost): real-time network stealth
 
-Their production builds are copied into `public/games/<name>/` so the site can host them. To refresh them, clone the four repos into a folder named `game dev porto/` next to `package.json` and run:
+Their production builds are copied into `public/games/<name>/` so the site can host them. To refresh them, clone the five repos into a folder named `game dev porto/` next to `package.json` and run:
 
 ```bash
 npm run sync:games

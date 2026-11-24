@@ -133,7 +133,7 @@ export const roster: RosterEntry[] = [
     blurb: 'Shaders, real-time graphics and game mechanics.',
     bio: [
       'Real-time WebGL graphics, shaders and game mechanics are where I spend most of my free time.',
-      'Four browser games shipped so far: tactical, action, 3D and physics, all drawn procedurally with synthesised audio.',
+      'Five browser games shipped so far: tactical, action, 3D, physics and network stealth, all drawn procedurally with synthesised audio.',
     ],
     stats: [{ label: 'Game Dev & WebGL', value: 85 }],
   },
@@ -178,6 +178,7 @@ export const socials: Social[] = [
 ]
 
 export const updates: UpdateItem[] = [
+  { title: 'Packet Ghost — network stealth and infiltration', date: '2026.11.25', tag: 'Game', href: 'https://github.com/RubahAnomali/packet-ghost', cover: 'linear-gradient(120deg, #0a1014, #2c6f66 60%, #ff5a3c)', image: '/media/games/packet-ghost.jpg', video: '/media/games/packet-ghost.mp4' },
   { title: 'Slingshot Salvage — orbital salvage game', date: '2026.11.10', tag: 'Game', href: 'https://github.com/RubahAnomali/slingshot-salvage', cover: 'linear-gradient(120deg, #0a2a5e, #2a6fd6 60%, #e8c25a)', image: '/media/games/slingshot-salvage.jpg', video: '/media/games/slingshot-salvage.mp4' },
   { title: 'Kinetic Courier — grapple-hook time trial', date: '2026.10.12', tag: 'Game', href: 'https://github.com/RubahAnomali/kinetic-courier', cover: 'linear-gradient(120deg, #2b2b2e, #c4562a 60%, #f0b27a)', image: '/media/games/kinetic-courier.jpg', video: '/media/games/kinetic-courier.mp4' },
   { title: 'Cyber-Parry Arena — parry-driven arena action', date: '2026.09.20', tag: 'Game', href: 'https://github.com/RubahAnomali/cyber-parry-arena', cover: 'linear-gradient(120deg, #0b0f24, #1fb5d6 55%, #d63ad0)', image: '/media/games/cyber-parry-arena.jpg', video: '/media/games/cyber-parry-arena.mp4' },
@@ -277,9 +278,30 @@ export const projects: Project[] = [
     image: '/media/games/slingshot-salvage.jpg',
     video: '/media/games/slingshot-salvage.mp4',
   },
+  {
+    title: 'Packet Ghost',
+    kind: 'Stealth game',
+    year: 'Nov 2026',
+    summary: 'Real-time network infiltration. Crack a procedural corporate graph node by node while ICE hunters triangulate your noise through a shared blackboard. Play from the graph or the built-in console.',
+    tags: ['TypeScript', 'Canvas 2D', 'Graph AI', 'WebAudio'],
+    links: [
+      { label: 'Play', href: '/games/packet-ghost/' },
+      { label: 'Source', href: 'https://github.com/RubahAnomali/packet-ghost' },
+    ],
+    cover: 'linear-gradient(135deg, #0a1014, #2c6f66 55%, #ff5a3c)',
+    image: '/media/games/packet-ghost.jpg',
+    video: '/media/games/packet-ghost.mp4',
+  },
 ]
 
 export const chapters: Chapter[] = [
+  {
+    no: '06',
+    period: 'Nov 2026',
+    role: 'Packet Ghost',
+    company: 'Stealth game · TypeScript, Canvas',
+    points: ['Network infiltration on a seeded, validated graph with a deterministic fixed-step simulation.', 'ICE agents share an AI blackboard, run a hierarchical state machine and path with heat-weighted Dijkstra.'],
+  },
   {
     no: '05',
     period: 'Nov 2026',
