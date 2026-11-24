@@ -2,6 +2,8 @@
 
 The personal portfolio of **RubahAnomali**: web and game developer, cyber security student. A single page of full-screen slides, with dark and light themes, an animations switch, and four games you can play in the browser.
 
+**Live site: [rubahanomali.vercel.app](https://rubahanomali.vercel.app)**
+
 Built with React 19, TypeScript and Vite. No UI library: the layout, motion and 3D map are plain CSS and SVG.
 
 ## Run it
@@ -17,7 +19,11 @@ npm run lint
 
 Everything you read on the site lives in [`src/data/site.ts`](src/data/site.ts): the profile and bio, social links, projects, updates, skills and the build log. Styles are in `src/styles/index.css`.
 
-Media for the games is in `public/media/games/` (one screenshot and one short clip per game, set through `image` and `video` in `site.ts`).
+Media for the games is in `public/media/games/` (one screenshot and one short clip per game, set through `image` and `video` in `site.ts`). The share-preview image is `public/og.jpg` (1200×630), referenced from the meta tags in `index.html`.
+
+## Hosting
+
+The site is deployed on Vercel from this repository: every push to `main` builds and publishes it. The games are already built into `public/games/`, so the host only runs `npm run build`.
 
 ## The games
 
