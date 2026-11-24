@@ -34,6 +34,7 @@ function Projects() {
             if (d > N / 2) d -= N
             const a = Math.min(Math.abs(d), 3)
             const sign = d < 0 ? -1 : 1
+            const cardSrc = p.cardVideo ?? p.video // the card is square, so a game can have its own square cut
             return (
               <li
                 key={p.title}
@@ -55,7 +56,7 @@ function Projects() {
                   {/* square card, 16:9 shot: crop a little left of centre so a board-style game keeps its board in view */}
                   <span className="card-cover" style={{ background: p.image ? `url(${p.image}) 25% center / cover` : p.cover }}>
                     {!p.image && <em aria-hidden="true">{p.title}</em>}
-                    {p.video && n === i && <Clip slide="projects" src={p.video} poster={p.image} className="card-video" />}
+                    {cardSrc && n === i && <Clip slide="projects" src={cardSrc} poster={p.image} className="card-video" />}
                   </span>
                 </button>
               </li>

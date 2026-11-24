@@ -23,6 +23,8 @@ export interface Project {
   image?: string
   /** Optional short muted loop in /public (mp4). Plays on the selected Projects card; `image` stays as the poster. */
   video?: string
+  /** Optional square cut of the clip for the Projects card, e.g. one that follows the player. Falls back to `video`. */
+  cardVideo?: string
   /** Placeholder cover gradient. */
   cover: string
 }
@@ -245,6 +247,7 @@ export const projects: Project[] = [
     cover: 'linear-gradient(135deg, #0a0e22, #1fb5d6 55%, #d63ad0)',
     image: '/media/games/cyber-parry-arena.jpg',
     video: '/media/games/cyber-parry-arena.mp4',
+    cardVideo: '/media/games/cyber-parry-arena-card.mp4',
   },
   {
     title: 'Kinetic Courier',

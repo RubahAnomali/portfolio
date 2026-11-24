@@ -19,7 +19,7 @@ npm run lint
 
 Everything you read on the site lives in [`src/data/site.ts`](src/data/site.ts): the profile and bio, social links, projects, updates, skills and the build log. Styles are in `src/styles/index.css`.
 
-Media for the games is in `public/media/games/` (one screenshot and one short clip per game, set through `image` and `video` in `site.ts`). The share-preview image is `public/og.jpg` (1200×630), referenced from the meta tags in `index.html`.
+Media for the games is in `public/media/games/` (one screenshot and one short clip per game, set through `image` and `video` in `site.ts`). A game can also have a square `cardVideo` for the Projects card; Cyber-Parry Arena's follows the player. The share-preview image is `public/og.jpg` (1200×630), referenced from the meta tags in `index.html`.
 
 ## Hosting
 
