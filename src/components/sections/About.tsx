@@ -87,7 +87,7 @@ function About() {
           <ul className="roster-grid" aria-label="Profile facets">
             {roster.map((r, n) => (
               <li key={r.id}>
-                <button type="button" className="roster-tile" aria-pressed={n === idx} onClick={() => setIdx(n)} aria-label={r.label} title={r.label}>
+                <button type="button" className="roster-tile" aria-pressed={n === idx} onClick={() => setIdx(n)} aria-label={`${r.short}: ${r.label}`} title={r.label}>
                   <span aria-hidden="true">{r.short}</span>
                 </button>
               </li>

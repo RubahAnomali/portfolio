@@ -87,18 +87,21 @@ function Hero() {
       <div className="hero-logo enter" data-enter="right" style={{ ['--i' as string]: 2 }}>
         <div className="pv-tabs" role="group" aria-label="Featured game">
           <p>Play</p>
-          {projects.map((g, n) => (
-            <button
-              key={g.title}
-              type="button"
-              className={n === i ? 'is-on' : ''}
-              aria-pressed={n === i}
-              aria-label={`Feature ${g.title}`}
-              onClick={() => show(n)}
-            >
-              {String(n + 1).padStart(3, '0')}
-            </button>
-          ))}
+          {projects.map((g, n) => {
+            const num = String(n + 1).padStart(3, '0')
+            return (
+              <button
+                key={g.title}
+                type="button"
+                className={n === i ? 'is-on' : ''}
+                aria-pressed={n === i}
+                aria-label={`${num}: ${g.title}`} /* starts with the visible number, so voice control ("click 001") works */
+                onClick={() => show(n)}
+              >
+                {num}
+              </button>
+            )
+          })}
         </div>
         <p className="logo-word">{p.title}</p>
         <a className="hero-play" href={p.links[0].href} target="_blank" rel="noreferrer">

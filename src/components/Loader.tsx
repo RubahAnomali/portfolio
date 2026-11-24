@@ -26,7 +26,7 @@ export default function Loader({ onDone }: { onDone: () => void }) {
     const dur = 1700
     let raf = 0
     const tick = (now: number) => {
-      const t = Math.min(1, (now - start) / dur)
+      const t = Math.max(0, Math.min(1, (now - start) / dur)) // the first frame can be stamped just before `start`, which showed "-11%"
       setPct(Math.round((1 - Math.pow(1 - t, 2)) * 100))
       if (t < 1) raf = requestAnimationFrame(tick)
       else {

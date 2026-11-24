@@ -70,13 +70,12 @@ function Journey() {
                     pointerEvents: Math.abs(d) > 2 ? 'none' : 'auto',
                   }}
                 >
-                  <button type="button" onClick={() => setI(n)} aria-current={n === i ? 'true' : undefined} aria-label={`${c.role}, ${c.company}, ${c.period}`}>
+                  <button type="button" onClick={() => setI(n)} aria-current={n === i ? 'true' : undefined} aria-label={`${c.no} ${c.role} ${c.period}, ${c.company}`}>
                     <span className="fan-no" aria-hidden="true">
                       {c.no}
-                    </span>
+                    </span>{' '}
                     <span className="fan-text" aria-hidden="true">
-                      <b>{c.role}</b>
-                      <small>{c.period}</small>
+                      <b>{c.role}</b> <small>{c.period}</small>
                     </span>
                   </button>
                 </li>

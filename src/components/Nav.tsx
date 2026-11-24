@@ -31,7 +31,7 @@ export default function Nav({ active }: { active: string }) {
 
   return (
     <header className={`nav ${open ? 'is-open' : ''}`}>
-      <a className="nav-brand" href="#home" aria-label={`${profile.name} — home`}>
+      <a className="nav-brand" href="#home" aria-label={`${profile.brandMark} — ${profile.name}, home`}>
         {profile.brandMark}
       </a>
       <nav id="primary-nav" aria-label="Primary">

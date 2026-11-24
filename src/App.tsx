@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import Footer from './components/Footer'
 import Frame from './components/Frame'
 import Loader from './components/Loader'
@@ -22,6 +22,8 @@ const ids = navItems.map((n) => n.id)
 
 export default function App() {
   const [ready, setReady] = useState(false)
+  // Stable on purpose: the Loader restarts its animation whenever this function changes, and App re-renders on every scroll.
+  const markReady = useCallback(() => setReady(true), [])
   const { active, visible } = useActiveSection(ids)
   usePageScroll(ids)
   useHashSync(ids, active)
@@ -29,7 +31,7 @@ export default function App() {
   return (
     <ActiveContext.Provider value={visible}>
       <div className={`site ${ready ? 'is-ready' : ''}`}>
-        <Loader onDone={() => setReady(true)} />
+        <Loader onDone={markReady} />
         <a className="skip-link" href="#main">
           Skip to content
         </a>

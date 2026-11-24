@@ -876,16 +876,18 @@ button:disabled {
 }
 .feature-dots {
   display: flex;
+  margin-bottom: -8px; /* the buttons are 24px tall for easy tapping; only the middle 8px is painted */
 }
 .feature-dots button {
   flex: 1;
-  height: 8px;
-  padding: 0;
+  height: 24px;
+  padding: 8px 0;
   border: 0;
   background: #4a4e52;
+  background-clip: content-box;
 }
 .feature-dots button.is-on {
-  background: #fff;
+  background-color: #fff; /* background-color, not the shorthand: the shorthand would reset background-clip */
 }
 .feature-decor {
   display: block;
@@ -1594,11 +1596,14 @@ html[data-motion='reduced'] :is(.card-video, .feature-video, .hero-video) {
 }
 .footer-links {
   display: grid;
-  gap: 0.35rem;
   font-size: 0.65rem;
   text-transform: uppercase;
   color: #ccc;
   letter-spacing: 0.04em;
+}
+.footer-links a {
+  display: inline-block;
+  padding-block: 0.4rem; /* at least 24px tall to tap */
 }
 .footer-links a:hover {
   color: #fff;
@@ -1794,7 +1799,8 @@ html[data-motion='reduced'] :is(.card-video, .feature-video, .hero-video) {
     bottom: 8rem;
   }
   .hero-word {
-    font-size: clamp(2rem, 9.5vw, 3.2rem);
+    /* The wide display font is about 10.3em across, so keep it under ~8vw or the name runs off a phone screen. */
+    font-size: min(3.2rem, 7.6vw);
   }
   .hero-logo {
     top: calc(var(--nav-h) + 1.5rem);
@@ -1925,10 +1931,10 @@ html[data-theme='dark'] {
   box-shadow: 0 0 0 1px rgb(255 255 255 / 0.35), 0 12px 30px rgb(0 0 0 / 0.5);
 }
 [data-theme='dark'] .feature-dots button {
-  background: #3a464c;
+  background-color: #3a464c;
 }
 [data-theme='dark'] .feature-dots button.is-on {
-  background: #e8f0f2;
+  background-color: #e8f0f2;
 }
 [data-theme='dark'] .feature-decor {
   background: #1d272c;
