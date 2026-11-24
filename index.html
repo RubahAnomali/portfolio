@@ -33,19 +33,20 @@
           document.querySelector('meta[name="color-scheme"]').setAttribute('content', 'light');
         }
       } catch (e) {}
+      var m = null;
       try {
         // The saved choice lives under a new key ("motion-pref"): earlier builds saved an "off" choice under "motion",
         // which kept animations off in a browser long after the default changed. Old values are now ignored.
         var q = new URLSearchParams(location.search).get('motion');
         if (q === 'full' || q === 'reduced') localStorage.setItem('motion-pref', q);
         localStorage.removeItem('motion');
-        var m = localStorage.getItem('motion-pref');
-        // Animations are on unless the visitor switched them off with the nav button.
-        if (m !== 'reduced') m = 'full';
-        document.documentElement.dataset.motion = m;
-      } catch (e) {
-        document.documentElement.dataset.motion = 'full';
+        m = localStorage.getItem('motion-pref');
+      } catch (e) {}
+      // A choice the visitor made with the nav switch wins. Without one, follow the device's "reduce motion" setting.
+      if (m !== 'full' && m !== 'reduced') {
+        m = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full';
       }
+      document.documentElement.dataset.motion = m;
     </script>
     <title>RubahAnomali — Web & Game Developer</title>
   </head>

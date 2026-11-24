@@ -108,6 +108,7 @@ function Hero() {
           {p.links[0].label} now <span aria-hidden="true">›</span>
           <span className="sr-only"> {p.title} (opens in a new tab)</span>
         </a>
+        <span className="play-note">Needs a keyboard. Best on a computer.</span>
       </div>
     </Slide>
   )

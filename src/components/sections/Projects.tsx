@@ -94,6 +94,7 @@ function Projects() {
               </a>
             ))}
           </p>
+          <p className="play-note">Needs a keyboard. Best on a computer.</p>
         </div>
       </div>
     </Slide>
