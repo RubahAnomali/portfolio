@@ -70,7 +70,7 @@ export const profile = {
   brandMark: 'RA',
   role: 'Web & Game Developer · Cyber Security Student',
   tagline: 'Building interactive web experiences, WebGL graphics, and indie games.',
-  codename: 'Operator: Rubah',
+  codename: 'Operator: Foxxy',
   rank: 4,
   class: 'Web & Game Developer',
   codeVoice: 'Open to internships · collaborations · freelance',
