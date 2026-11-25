@@ -64,6 +64,8 @@ export interface GalleryItem {
   title: string
   cover: string
   image?: string
+  /** Where the 16:9 tile crops the picture (CSS background-position), so a tall photo keeps its subject. */
+  focus?: string
 }
 
 export const profile = {
@@ -154,10 +156,10 @@ export const roster: RosterEntry[] = [
 ]
 
 /**
- * Sections you can switch on and off. The Gallery is hidden until there is real work to show:
- * set `gallery: true` (and fill `galleryTabs` below) to bring it back, nav link included.
+ * Sections you can switch on and off. The Photography slide (id `gallery`) shows the pictures listed in
+ * `galleryTabs` below; set `gallery: false` to hide it, nav link included.
  */
-export const features = { gallery: false }
+export const features = { gallery: true }
 
 const allNavItems: NavItem[] = [
   { id: 'home', label: 'Home' },
@@ -166,7 +168,7 @@ const allNavItems: NavItem[] = [
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
   { id: 'journey', label: 'Journey' },
-  { id: 'gallery', label: 'Gallery' },
+  { id: 'gallery', label: 'Photography' },
   { id: 'contact', label: 'Contact' },
 ]
 export const navItems: NavItem[] = allNavItems.filter((n) => n.id !== 'gallery' || features.gallery)
@@ -370,27 +372,30 @@ export const chapters: Chapter[] = [
   },
 ]
 
+/** Where the Photography slide's "More" button goes: the Instagram account the pictures come from. */
+export const photographyHref = 'https://www.instagram.com/almbakapuji/'
+
+// The pictures are in public/media/photos/ (960 px wide, no metadata). A slide shows the first six of a tab.
 export const galleryTabs: { id: string; label: string; items: GalleryItem[] }[] = [
   {
-    id: 'ui',
-    label: 'UI Design',
+    id: 'city',
+    label: 'City & night',
     items: [
-      { title: 'Ledgerly — dark mode', cover: 'linear-gradient(135deg, #0b1d2e, #2c7da0)' },
-      { title: 'Trailhead — route view', cover: 'linear-gradient(135deg, #3a1717, #d96c5f)' },
-      { title: 'Signal Kit — buttons', cover: 'linear-gradient(135deg, #0a3d62, #74b9ff)' },
-      { title: 'Bloom — storefront', cover: 'linear-gradient(135deg, #7a4a12, #f0c36a)' },
-      { title: 'Pixel Pocket — menu', cover: 'linear-gradient(135deg, #1b1f2a, #9b6bff)' },
-      { title: 'Landing page study', cover: 'linear-gradient(135deg, #2a2a2a, #9aa3ad)' },
+      { title: 'Fogging the courtyard', cover: 'linear-gradient(135deg, #2a1a1a, #7a4a3a)', image: '/media/photos/fogging-the-courtyard.jpg', focus: 'center 72%' },
+      { title: 'Underpass', cover: 'linear-gradient(135deg, #1a0b05, #a8501c)', image: '/media/photos/underpass.jpg', focus: 'center 30%' },
+      { title: 'Night food cart', cover: 'linear-gradient(135deg, #0b1013, #c4562a)', image: '/media/photos/night-food-cart.jpg', focus: 'center 40%' },
+      { title: 'Ice cream cat', cover: 'linear-gradient(135deg, #14301f, #c0392b)', image: '/media/photos/ice-cream-cat.jpg' },
+      { title: 'Light trails', cover: 'linear-gradient(135deg, #07090d, #3a3f4a)', image: '/media/photos/light-trails.jpg', focus: 'center 65%' },
+      { title: 'Concourse', cover: 'linear-gradient(135deg, #2b1c10, #8a5a30)', image: '/media/photos/concourse.jpg', focus: 'center 45%' },
     ],
   },
   {
-    id: 'art',
-    label: 'Illustration',
+    id: 'sky',
+    label: 'Skies',
     items: [
-      { title: 'City at dawn', cover: 'linear-gradient(135deg, #1d2b53, #ff8f6b)' },
-      { title: 'Iso study 01', cover: 'linear-gradient(135deg, #14301f, #7fe0a8)' },
-      { title: 'Poster — Signal', cover: 'linear-gradient(135deg, #3b0d2e, #ff6b9a)' },
-      { title: 'Sticker pack', cover: 'linear-gradient(135deg, #2b2b6b, #7de3f4)' },
+      { title: 'Storm over the gas station', cover: 'linear-gradient(135deg, #07243a, #1c6a8a)', image: '/media/photos/storm-over-the-gas-station.jpg', focus: 'center 60%' },
+      { title: 'Evening clouds', cover: 'linear-gradient(135deg, #3a2a14, #d99a4a)', image: '/media/photos/evening-clouds.jpg', focus: 'center 55%' },
+      { title: 'Sunset over the city', cover: 'linear-gradient(135deg, #2a2210, #b8861f)', image: '/media/photos/sunset-over-the-city.jpg', focus: 'center 40%' },
     ],
   },
 ]
