@@ -765,38 +765,87 @@ button:disabled {
 }
 .about-stage {
   --frame: 14px; /* border of the white frame */
+  --fig-h: min(36rem, calc(100% - var(--frame))); /* the figure's height: the stage less the border it stands on */
+  --seat: 0.565; /* where the figure's seat is, as a share of its height from the top */
   position: relative;
   display: grid;
   place-items: end center;
   align-self: stretch; /* as tall as the text column, so the figure's top and bottom line up with it */
   min-height: min(36rem, 64svh);
 }
-/* frame, diamond and figure all share the stage's centre line; the head rises above the frame's top edge
-   and the figure stands on the frame's bottom border */
+/* The frame is the ledge the figure sits on: its top edge is at the figure's seat, its bottom border is the floor
+   under the feet, and it is wider than the figure so the ledge shows on both sides. Everything shares one centre line. */
 .white-square {
   position: absolute;
-  inset: 13% 6% 0;
+  left: 6%;
+  right: 6%;
+  bottom: 0;
+  top: calc(100% - var(--frame) - (1 - var(--seat)) * var(--fig-h));
   border: var(--frame) solid #fff;
+  background: repeating-linear-gradient(135deg, transparent 0 10px, color-mix(in srgb, var(--ink) 7%, transparent) 10px 12px);
+  background-clip: padding-box;
   box-shadow: 0 6px 18px rgb(0 0 0 / 0.12);
 }
-.diamond {
-  /* exactly the frame's inner area, so the art is centred in it and its edges meet the frame's border */
+/* a thin line that carries the frame's top edge out to both edges of the stage */
+.white-square::before {
+  content: '';
   position: absolute;
-  left: calc(6% + var(--frame));
-  top: calc(13% + var(--frame));
-  width: calc(88% - 2 * var(--frame));
-  height: calc(87% - 2 * var(--frame));
-  color: var(--red);
-  filter: drop-shadow(0 4px 10px rgb(0 0 0 / 0.25));
+  left: -6.8%; /* 6% of the stage on each side, as a share of the frame's 88% */
+  right: -6.8%;
+  top: calc(-1 * var(--frame));
+  height: 2px;
+  background: color-mix(in srgb, var(--ink) 40%, transparent);
 }
-.slide.is-active .diamond {
-  animation: spin-in 1.2s var(--expo) 0.3s both;
+/* Art behind the figure: it is tied to the figure's size, rises above the frame and reaches into it, and its wings
+   and seat line run out past the frame's sides, so it passes through the frame like the figure does. */
+.stage-deco {
+  position: absolute;
+  left: 50%;
+  top: calc(100% - var(--frame) - 0.6 * var(--fig-h));
+  height: calc(0.68 * var(--fig-h));
+  aspect-ratio: 528 / 346;
+  max-width: 100%; /* on a narrow stage the art shrinks (about its centre) rather than running off the screen */
+  transform: translate(-50%, -50%);
+  overflow: visible;
+  color: var(--ink);
+  pointer-events: none;
 }
-@keyframes spin-in {
+.slide.is-active .stage-deco {
+  animation: deco-in 0.9s var(--expo) 0.3s both;
+}
+@keyframes deco-in {
   from {
-    transform: rotate(0) scale(0.2);
+    transform: translate(-50%, -50%) scale(0.85);
     opacity: 0;
   }
+}
+.deco-line {
+  fill: none;
+  stroke: currentColor;
+  stroke-opacity: 0.4;
+  stroke-width: 2;
+}
+.deco-hex {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 4;
+  stroke-linejoin: miter;
+}
+.deco-hex-in {
+  fill: none;
+  stroke: currentColor;
+  stroke-opacity: 0.35;
+  stroke-width: 1.5;
+  stroke-dasharray: 5 7;
+}
+.deco-chev {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 6;
+  stroke-linecap: square;
+}
+.deco-dot {
+  fill: var(--red);
 }
 .about-stage img,
 .portrait-ph {
@@ -809,7 +858,7 @@ button:disabled {
 .about-stage img {
   /* stands on the frame's bottom border and never wider than the frame's inside; on a narrow stage the picture
      shrinks to fit instead of spilling over the border */
-  height: calc(100% - var(--frame));
+  height: var(--fig-h);
   max-height: 36rem;
   max-width: calc(88% - 2 * var(--frame));
   object-fit: contain;
@@ -1772,7 +1821,7 @@ html[data-motion='reduced'] :is(.card-video, .feature-video, .hero-video) {
     order: -1;
     align-self: auto;
     min-height: 0;
-    height: min(26rem, 70svh);
+    height: min(24rem, 66svh);
   }
   .portrait-ph {
     height: 18rem;
@@ -1926,9 +1975,6 @@ html[data-theme='dark'] {
 [data-theme='dark'] .white-square {
   border-color: rgb(255 255 255 / 0.88);
   box-shadow: 0 6px 24px rgb(0 0 0 / 0.5);
-}
-[data-theme='dark'] .diamond {
-  box-shadow: inset 0 0 0 14px rgb(179 54 46 / 0.22), 0 0 0 10px rgb(255 255 255 / 0.06);
 }
 [data-theme='dark'] .portrait-ph {
   fill: #3a4f58;

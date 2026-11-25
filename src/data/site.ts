@@ -91,7 +91,9 @@ export const profile = {
     { label: 'Cyber Security', value: 80 },
     { label: 'UI / Design Sense', value: 82 },
   ],
-  /** Portrait shown on the About slide: a cut-out with a transparent background, a file in /public (WebP, 785 x 1030, no metadata). Leave undefined to show a silhouette. */
+  /** Full-length cut-out of you sitting, with a transparent background, a file in /public (WebP, 385 x 582). The About stage
+   *  puts the frame's top edge at the seat (the `--seat` value in index.css), so a different picture needs that value
+   *  checked. Leave undefined to show a silhouette. */
   photo: '/media/portrait.webp' as string | undefined,
   email: 'farrellfyelo@gmail.com',
   /** Path or URL of your résumé PDF (e.g. '/resume.pdf' in /public). Leave empty to hide the button. */

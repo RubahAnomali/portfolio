@@ -60,17 +60,20 @@ function About() {
         </div>
 
         <div className="about-stage enter" data-enter="left" style={{ ['--i' as string]: 2 }} aria-hidden={profile.photo ? undefined : true}>
+          {/* the frame is the ledge the figure sits on: its top edge is at the figure's seat */}
           <div className="white-square" aria-hidden="true" />
           {/* the art re-enters from the left whenever another facet is picked */}
           <div className="stage-art" key={cur.id}>
-            <svg className="diamond" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
-              <g transform="rotate(45 200 200)" fill="none" stroke="currentColor">
-                <rect x="70" y="70" width="260" height="260" strokeWidth="14" strokeDasharray="120 26 60 26" />
-                <rect x="105" y="105" width="190" height="190" strokeWidth="10" strokeDasharray="70 20 110 20" />
-                <rect x="135" y="135" width="130" height="130" strokeWidth="8" strokeDasharray="40 16 80 16" />
-                <rect x="165" y="165" width="70" height="70" strokeWidth="8" />
-                <rect x="40" y="40" width="320" height="320" strokeWidth="3" />
-              </g>
+            {/* an open hexagon behind the figure that rises above the frame and reaches down into it, and wings that run
+                out past the frame's sides */}
+            <svg className="stage-deco" viewBox="0 0 528 346" aria-hidden="true" focusable="false">
+              <path className="deco-line" d="M94 173H10M434 173H518" />
+              <path className="deco-hex-in" d="M178 266L124 173L194 51.8H334L404 173L350 266" />
+              <path className="deco-hex" d="M149 266L94 173L179 25.8H349L434 173L379 266" />
+              <path className="deco-chev" d="M66 153L48 173L66 193M38 153L20 173L38 193M462 153L480 173L462 193M490 153L508 173L490 193" />
+              {['94,173', '179,25.8', '349,25.8', '434,173'].map((p) => (
+                <circle key={p} className="deco-dot" cx={p.split(',')[0]} cy={p.split(',')[1]} r="5" />
+              ))}
             </svg>
             {profile.photo ? (
               <img src={profile.photo} alt={`Portrait of ${profile.name}`} />
