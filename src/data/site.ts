@@ -53,11 +53,12 @@ export interface SkillNode {
 }
 
 export interface Chapter {
-  no: string
   period: string
   role: string
   company: string
   points: string[]
+  /** Optional picture for the big card; without one the card keeps its plain gradient. */
+  image?: string
 }
 
 export interface GalleryItem {
@@ -334,49 +335,48 @@ export const isGameHref = (href: string) => projects.some((p) => isPlayable(p) &
 
 export const chapters: Chapter[] = [
   {
-    no: '07',
     period: 'Nov 2026',
     role: 'patchlint',
     company: 'Security tool · Python, PyPI',
     points: ['Beginner-friendly security linter for Dockerfiles, GitHub Actions workflows and docker-compose files. Every finding says why it matters and how to fix it.', 'Published on PyPI with SARIF output for GitHub code scanning, rule plugins and rules contributed by other developers.'],
+    image: '/media/projects/patchlint.jpg',
   },
   {
-    no: '06',
     period: 'Nov 2026',
     role: 'Packet Ghost',
     company: 'Stealth game · TypeScript, Canvas',
     points: ['Network infiltration on a seeded, validated graph with a deterministic fixed-step simulation.', 'ICE agents share an AI blackboard, run a hierarchical state machine and path with heat-weighted Dijkstra.'],
+    image: '/media/games/packet-ghost.jpg',
   },
   {
-    no: '05',
     period: 'Nov 2026',
     role: 'Slingshot Salvage',
     company: 'Physics game · TypeScript, Canvas',
     points: ['Cyanotype-blueprint orbital salvage: tether pods, use gravity, tow them home.', 'Orbital physics, gravity-field visualisation and synthesised audio.'],
+    image: '/media/games/slingshot-salvage.jpg',
   },
   {
-    no: '04',
     period: 'Oct 2026',
     role: 'Kinetic Courier',
     company: '3D game · TypeScript, Three.js',
     points: ['First-person grapple-hook time trial with a spring-damper rope and wall-runs.', 'Player state machine, EMP drones and ghost replay of your best run.'],
+    image: '/media/games/kinetic-courier.jpg',
   },
   {
-    no: '03',
     period: 'Sep 2026',
     role: 'Cyber-Parry Arena',
     company: 'Action game · TypeScript, Canvas',
     points: ['Parry-driven arena combat: deflect rail shots, stun lunges, dash through lines.', 'Utility-AI enemies and a debug HUD for tuning.'],
+    image: '/media/games/cyber-parry-arena.jpg',
   },
   {
-    no: '02',
     period: 'Aug 2026',
     role: 'Breach Protocol',
     company: 'Tactical game · TypeScript, Canvas',
     points: ['Turn-based room clearing where enemies telegraph their next move.', 'Exact-outcome previews, undo/redo and procedural art.'],
+    image: '/media/games/breach-protocol.jpg',
   },
   {
-    no: '01',
     period: '2024 — Present',
     role: 'B.Sc. Informatics (Cyber Security)',
     company: 'Universitas Pelita Harapan',
