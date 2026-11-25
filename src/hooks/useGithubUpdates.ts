@@ -17,11 +17,12 @@ const COVERS = [
   'linear-gradient(120deg, #1a1d22, #4a5560 55%, #c0392b)',
   'linear-gradient(120deg, #14301f, #2f8f5b 60%, #b6f0c8)',
 ]
-const KEY = `gh-repos-v2-${profile.githubUser}` // bump when the filter changes, so a tab does not keep showing a cached older list
+const KEY = `gh-repos-v3-${profile.githubUser}` // bump when the filter changes, so a tab does not keep showing a cached older list
 const TTL = 10 * 60 * 1000
 
-/** Repos kept out of the Updates list: this site's own repo (so the newest item stays a game) and two old practice repos. */
-const HIDDEN = new Set(['portfolio', 'hellocompose', 'web_dev'])
+/** Repos kept out of the Updates list: this site's own repo (so the newest item stays a game), the profile README repo
+ *  (named like the user) and two old practice repos. */
+const HIDDEN = new Set(['portfolio', profile.githubUser.toLowerCase(), 'hellocompose', 'web_dev'])
 
 const toItems = (repos: Repo[]): UpdateItem[] =>
   repos
