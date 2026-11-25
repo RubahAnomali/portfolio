@@ -675,16 +675,14 @@ button:disabled {
 .stars {
   letter-spacing: 0.1em;
   font-size: 1.15rem;
-  color: #fff;
-  text-shadow: 0 1px 2px rgb(0 0 0 / 0.8);
+  color: var(--ink); /* dark on the light theme, light on the dark one; white was too faint on the pale slide */
 }
 .about-name {
   font-family: var(--display);
   font-size: clamp(2.4rem, 5vw, 3.6rem);
   font-weight: 700;
   line-height: 1;
-  color: #fff;
-  text-shadow: 0 3px 6px rgb(0 0 0 / 0.4);
+  color: var(--ink);
 }
 .rule {
   width: 2rem;
@@ -766,22 +764,28 @@ button:disabled {
   transition: transform 0.4s var(--ease);
 }
 .about-stage {
+  --frame: 14px; /* border of the white frame */
   position: relative;
   display: grid;
   place-items: end center;
+  align-self: stretch; /* as tall as the text column, so the figure's top and bottom line up with it */
   min-height: min(36rem, 64svh);
 }
+/* frame, diamond and figure all share the stage's centre line; the head rises above the frame's top edge
+   and the figure stands on the frame's bottom border */
 .white-square {
   position: absolute;
-  inset: 6% 8% 4% 14%;
-  border: 14px solid #fff;
+  inset: 13% 6% 0;
+  border: var(--frame) solid #fff;
   box-shadow: 0 6px 18px rgb(0 0 0 / 0.12);
 }
 .diamond {
+  /* exactly the frame's inner area, so the art is centred in it and its edges meet the frame's border */
   position: absolute;
-  inset: 0 8% 6% 18%;
-  width: 74%;
-  height: 94%;
+  left: calc(6% + var(--frame));
+  top: calc(13% + var(--frame));
+  width: calc(88% - 2 * var(--frame));
+  height: calc(87% - 2 * var(--frame));
   color: var(--red);
   filter: drop-shadow(0 4px 10px rgb(0 0 0 / 0.25));
 }
@@ -801,6 +805,16 @@ button:disabled {
   width: auto;
   max-width: 100%;
   filter: drop-shadow(0 18px 24px rgb(0 0 0 / 0.25));
+}
+.about-stage img {
+  /* stands on the frame's bottom border and never wider than the frame's inside; on a narrow stage the picture
+     shrinks to fit instead of spilling over the border */
+  height: calc(100% - var(--frame));
+  max-height: 36rem;
+  max-width: calc(88% - 2 * var(--frame));
+  object-fit: contain;
+  object-position: center bottom;
+  margin-bottom: var(--frame);
 }
 .portrait-ph {
   fill: var(--ink);
@@ -1756,7 +1770,9 @@ html[data-motion='reduced'] :is(.card-video, .feature-video, .hero-video) {
   }
   .about-stage {
     order: -1;
-    min-height: 18rem;
+    align-self: auto;
+    min-height: 0;
+    height: min(26rem, 70svh);
   }
   .portrait-ph {
     height: 18rem;
@@ -2094,12 +2110,12 @@ html[data-theme='dark'] {
   grid-template-columns: minmax(16rem, 0.9fr) 1.4fr auto;
 }
 .stage-art {
-  grid-area: 1 / 1;
-  position: relative;
+  /* out of the flow, so the figure never makes the stage (and the row) taller than the text column */
+  position: absolute;
+  inset: 0;
   display: grid;
+  grid-template: 100% / 100%; /* a definite area, so the figure can take a percentage of its height */
   place-items: end center;
-  width: 100%;
-  height: 100%;
 }
 .slide.is-active .stage-art {
   animation: role-in 0.8s var(--expo) 0.1s both;

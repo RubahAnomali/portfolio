@@ -91,8 +91,8 @@ export const profile = {
     { label: 'Cyber Security', value: 80 },
     { label: 'UI / Design Sense', value: 82 },
   ],
-  /** Portrait shown on the About slide: a file in /public (4:5, about 900 px wide, no metadata). Leave undefined to show a silhouette. */
-  photo: '/media/portrait.jpg' as string | undefined,
+  /** Portrait shown on the About slide: a cut-out with a transparent background, a file in /public (WebP, 785 x 1030, no metadata). Leave undefined to show a silhouette. */
+  photo: '/media/portrait.webp' as string | undefined,
   email: 'farrellfyelo@gmail.com',
   /** Path or URL of your résumé PDF (e.g. '/resume.pdf' in /public). Leave empty to hide the button. */
   resumeHref: '',
