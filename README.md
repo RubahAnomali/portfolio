@@ -1,6 +1,6 @@
 # Portfolio
 
-The personal portfolio of **RubahAnomali**: web and game developer, cyber security student. A single page of full-screen slides, with dark and light themes, an animations switch, and five games you can play in the browser.
+The personal portfolio of **RubahAnomali**: web and game developer, cyber security student. A single page of full-screen slides, with dark and light themes, an animations switch, five games you can play in the browser, and a photography gallery.
 
 **Live site: [rubahanomali.vercel.app](https://rubahanomali.vercel.app)**
 

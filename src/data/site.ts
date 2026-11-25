@@ -82,7 +82,7 @@ export const profile = {
   codeVoice: 'Open to internships · collaborations · freelance',
   bio: [
     'I’m a Computer Science (Informatika) student at Universitas Pelita Harapan specializing in Cyber Security, with a strong focus on web development, real-time WebGL graphics, and game design. I enjoy turning complex math and system logic into responsive, interactive browser experiences.',
-    'Based in Tangerang, Indonesia, I spend my time building web applications, experimenting with shaders and game mechanics, and exploring how security fits into modern software architecture. Currently open to internships, collaborations, and freelance projects.',
+    'Based in Tangerang, Indonesia, I spend my time building web applications, experimenting with shaders and game mechanics, and exploring how security fits into modern software architecture. Away from the screen I take photos around the city, mostly at night; they are on the Photography page. Currently open to internships, collaborations, and freelance projects.',
   ],
   stats: [
     { label: 'Web & Frontend', value: 88 },
@@ -173,10 +173,14 @@ const allNavItems: NavItem[] = [
 ]
 export const navItems: NavItem[] = allNavItems.filter((n) => n.id !== 'gallery' || features.gallery)
 
+/** The Instagram account the photos come from: the Photography slide's "More" button and a social link go here. */
+export const photographyHref = 'https://www.instagram.com/almbakapuji/'
+
 export const socials: Social[] = [
   { label: 'GitHub', href: 'https://github.com/RubahAnomali', icon: 'github' },
   { label: 'Email', href: `mailto:${profile.email}`, icon: 'mail' },
   { label: 'Instagram', href: 'https://www.instagram.com/prlpyl/', icon: 'instagram' },
+  { label: 'Photography on Instagram', href: photographyHref, icon: 'instagram' },
   // To add another network, push an entry here; the right strip and the Contact slide pick it up. An entry with an
   // empty href is drawn as an inactive icon in the strip and left out of Contact.
 ]
@@ -222,6 +226,14 @@ export const skillNodes: SkillNode[] = [
     items: ['Linux / Ubuntu Server', 'Oracle VM'],
     col: 7,
     row: 5,
+  },
+  {
+    id: 'photo',
+    title: 'Photography',
+    blurb: 'Night and street photography around the city, plus skies.',
+    items: ['Night photography', 'Street photography', 'Long exposure'],
+    col: 9,
+    row: 3,
   },
 ]
 
@@ -371,9 +383,6 @@ export const chapters: Chapter[] = [
     points: ['Network and system security, cryptography, web engineering.', 'Interactive computer graphics and game design.'],
   },
 ]
-
-/** Where the Photography slide's "More" button goes: the Instagram account the pictures come from. */
-export const photographyHref = 'https://www.instagram.com/almbakapuji/'
 
 // The pictures are in public/media/photos/ (960 px wide, no metadata). A slide shows the first six of a tab.
 export const galleryTabs: { id: string; label: string; items: GalleryItem[] }[] = [
