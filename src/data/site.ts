@@ -25,6 +25,8 @@ export interface Project {
   video?: string
   /** Optional square cut of the clip for the Projects card, e.g. one that follows the player. Falls back to `video`. */
   cardVideo?: string
+  /** Optional square still for the Projects card, used instead of `image` (which is 16:9 and gets cropped there). */
+  cardImage?: string
   /** Placeholder cover gradient. */
   cover: string
 }
@@ -145,7 +147,7 @@ export const roster: RosterEntry[] = [
     blurb: 'Security in modern software architecture.',
     bio: [
       'I study Cyber Security at Universitas Pelita Harapan: network and system security, cryptography and secure web engineering.',
-      'I’m exploring how security fits into modern software architecture.',
+      'I’m exploring how security fits into modern software architecture, and I build open-source tools: patchlint, a beginner-friendly security linter for Dockerfiles and GitHub Actions workflows, is on PyPI.',
     ],
     stats: [{ label: 'Cyber Security', value: 80 }],
   },
@@ -178,6 +180,7 @@ export const socials: Social[] = [
 ]
 
 export const updates: UpdateItem[] = [
+  { title: 'patchlint — security linter for Dockerfiles and GitHub Actions', date: '2026.11.25', tag: 'Security', href: 'https://github.com/RubahAnomali/patchlint', cover: 'linear-gradient(120deg, #07141a, #0b7894 60%, #ff7a59)', image: '/media/projects/patchlint.jpg', video: '/media/projects/patchlint.mp4' },
   { title: 'Packet Ghost — network stealth and infiltration', date: '2026.11.25', tag: 'Game', href: 'https://github.com/RubahAnomali/packet-ghost', cover: 'linear-gradient(120deg, #0a1014, #2c6f66 60%, #ff5a3c)', image: '/media/games/packet-ghost.jpg', video: '/media/games/packet-ghost.mp4' },
   { title: 'Slingshot Salvage — orbital salvage game', date: '2026.11.10', tag: 'Game', href: 'https://github.com/RubahAnomali/slingshot-salvage', cover: 'linear-gradient(120deg, #0a2a5e, #2a6fd6 60%, #e8c25a)', image: '/media/games/slingshot-salvage.jpg', video: '/media/games/slingshot-salvage.mp4' },
   { title: 'Kinetic Courier — grapple-hook time trial', date: '2026.10.12', tag: 'Game', href: 'https://github.com/RubahAnomali/kinetic-courier', cover: 'linear-gradient(120deg, #2b2b2e, #c4562a 60%, #f0b27a)', image: '/media/games/kinetic-courier.jpg', video: '/media/games/kinetic-courier.mp4' },
@@ -206,7 +209,7 @@ export const skillNodes: SkillNode[] = [
     id: 'security',
     title: 'Security',
     blurb: 'Studying how security fits into modern software architecture.',
-    items: ['Cyber Security', 'Cryptography', 'Network security', 'System security', 'Secure web engineering'],
+    items: ['Cyber Security', 'Cryptography', 'Network security', 'System security', 'Secure web engineering', 'DevSecOps', 'Static analysis', 'Python'],
     col: 4,
     row: 4,
   },
@@ -292,9 +295,37 @@ export const projects: Project[] = [
     image: '/media/games/packet-ghost.jpg',
     video: '/media/games/packet-ghost.mp4',
   },
+  {
+    title: 'patchlint',
+    kind: 'Security tool',
+    year: 'Nov 2026',
+    summary: 'A beginner-friendly security linter for Dockerfiles, GitHub Actions workflows and docker-compose files. Every finding explains why it matters and how to fix it. Text, JSON and SARIF output for GitHub code scanning, rule plugins, and published on PyPI.',
+    tags: ['Python', 'DevSecOps', 'SARIF', 'PyPI'],
+    links: [
+      { label: 'PyPI', href: 'https://pypi.org/project/patchlint/' },
+      { label: 'Source', href: 'https://github.com/RubahAnomali/patchlint' },
+    ],
+    cover: 'linear-gradient(135deg, #07141a, #0b7894 55%, #ff7a59)',
+    image: '/media/projects/patchlint.jpg',
+    video: '/media/projects/patchlint.mp4',
+    cardImage: '/media/projects/patchlint-card.jpg',
+    cardVideo: '/media/projects/patchlint-card.mp4',
+  },
 ]
 
+/** Games you can play in the browser: their first link is "Play". The hero and the Games tabs only list these. */
+export const isPlayable = (p: Project) => p.links[0]?.label === 'Play'
+/** True when `href` is the repository or play link of a playable project. */
+export const isGameHref = (href: string) => projects.some((p) => isPlayable(p) && p.links.some((l) => l.href === href))
+
 export const chapters: Chapter[] = [
+  {
+    no: '07',
+    period: 'Nov 2026',
+    role: 'patchlint',
+    company: 'Security tool · Python, PyPI',
+    points: ['Beginner-friendly security linter for Dockerfiles, GitHub Actions workflows and docker-compose files. Every finding says why it matters and how to fix it.', 'Published on PyPI with SARIF output for GitHub code scanning, rule plugins and rules contributed by other developers.'],
+  },
   {
     no: '06',
     period: 'Nov 2026',

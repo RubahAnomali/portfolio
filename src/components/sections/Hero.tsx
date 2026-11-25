@@ -1,11 +1,13 @@
 import { memo, useEffect, useState } from 'react'
-import { profile, projects } from '../../data/site'
+import { isPlayable, profile, projects as allProjects } from '../../data/site'
 import Clip from '../Clip'
 import Slide from '../Slide'
 
 /** Crossfade length in ms; keep in step with the hero-clip-in / hero-clip-out animations in index.css. */
 const FADE = 900
 const noop = () => undefined
+/** The hero features the playable games; other projects (such as the security tool) only appear in the Projects slide. */
+const projects = allProjects.filter(isPlayable)
 
 function Hero() {
   const [i, setI] = useState(0)

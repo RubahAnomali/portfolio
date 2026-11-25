@@ -19,7 +19,7 @@ npm run lint
 
 Everything you read on the site lives in [`src/data/site.ts`](src/data/site.ts): the profile and bio, social links, projects, updates, skills and the build log. Styles are in `src/styles/index.css`.
 
-Media for the games is in `public/media/games/` (one screenshot and one short clip per game, set through `image` and `video` in `site.ts`). A game can also have a square `cardVideo` for the Projects card; Cyber-Parry Arena's follows the player. The share-preview image is `public/og.jpg` (1200×630), referenced from the meta tags in `index.html`.
+Media for the games is in `public/media/games/` (one screenshot and one short clip per game, set through `image` and `video` in `site.ts`); other projects use `public/media/projects/`. A game can also have a square `cardVideo` for the Projects card; Cyber-Parry Arena's follows the player. The share-preview image is `public/og.jpg` (1200×630), referenced from the meta tags in `index.html`.
 
 ## Hosting
 
@@ -40,6 +40,10 @@ Their production builds are copied into `public/games/<name>/` so the site can h
 ```bash
 npm run sync:games
 ```
+
+## Other projects
+
+[patchlint](https://github.com/RubahAnomali/patchlint) is a beginner-friendly security linter for Dockerfiles, GitHub Actions workflows and docker-compose files, published on [PyPI](https://pypi.org/project/patchlint/). It has its own card in the Projects slide (links to PyPI and the source, no Play button), and its terminal demo is `public/media/projects/patchlint.mp4`. Only projects whose first link is "Play" are featured in the hero and counted under the Games tab of the Updates list.
 
 ## Live updates
 

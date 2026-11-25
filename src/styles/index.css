@@ -841,7 +841,8 @@ button:disabled {
 /* ---------- Updates ("News") ---------- */
 .updates {
   display: grid;
-  grid-template-columns: 1.45fr 1fr;
+  /* minmax(0, ...) so a long repository title is cut with an ellipsis instead of squeezing the featured card away */
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
   gap: clamp(1rem, 3vw, 2.5rem);
   max-width: 80rem;
   margin-inline: auto;
@@ -1770,7 +1771,7 @@ html[data-motion='reduced'] :is(.card-video, .feature-video, .hero-video) {
   .about,
   .updates,
   .journey {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .about-stage {
     order: -1;

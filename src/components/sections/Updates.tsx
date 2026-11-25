@@ -1,5 +1,5 @@
 import { memo, useState } from 'react'
-import { projects } from '../../data/site'
+import { isGameHref as isGame } from '../../data/site'
 import { useGithubUpdates } from '../../hooks/useGithubUpdates'
 import Clip from '../Clip'
 import { DoubleChevron } from '../Icons'
@@ -9,7 +9,6 @@ import UpdatesArchive from '../UpdatesArchive'
 const TABS = ['Latest', 'Games', 'Other'] as const
 type Tab = (typeof TABS)[number]
 
-const isGame = (href: string) => projects.some((p) => p.links.some((l) => l.href === href))
 /** 2026.11.24 -> 11/24/2026 */
 const fmt = (d: string) => {
   const [y, m, day] = d.split('.')

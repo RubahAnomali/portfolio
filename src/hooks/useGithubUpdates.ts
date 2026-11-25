@@ -28,9 +28,10 @@ const toItems = (repos: Repo[]): UpdateItem[] =>
     .filter((r) => !r.fork && r.name !== SITE_REPO)
     .slice(0, 20)
     .map((r, i) => {
-      const known = fallback.find((f) => f.href === r.html_url) // the games keep their own date, cover, screenshot and clip
+      const known = fallback.find((f) => f.href === r.html_url) // the projects listed in site.ts keep their own title, date, cover, screenshot and clip
       return {
-        title: `${r.name}${r.description ? ` — ${r.description}` : ''}`,
+        // a long GitHub description would swamp the list, so a project from site.ts uses its own short title
+        title: known?.title ?? `${r.name}${r.description ? ` — ${r.description}` : ''}`,
         date: known?.date ?? r.pushed_at.slice(0, 10).replace(/-/g, '.'),
         tag: r.language ?? 'Repo',
         href: r.html_url,

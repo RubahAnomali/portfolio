@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { profile, projects, type UpdateItem } from '../data/site'
+import { isGameHref as isGame, profile, type UpdateItem } from '../data/site'
 import { isReduced } from '../lib/motion'
 import Overlay from './Overlay'
 
@@ -7,7 +7,6 @@ const TABS = ['Latest', 'Games', 'Other'] as const
 type Tab = (typeof TABS)[number]
 const PER_PAGE = 6
 
-const isGame = (href: string) => projects.some((p) => p.links.some((l) => l.href === href))
 const fmt = (d: string) => {
   const [y, m, day] = d.split('.')
   return y && m && day ? `${Number(m)}/${Number(day)}/${y}` : d

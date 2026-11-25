@@ -1,5 +1,5 @@
 import { memo, useState } from 'react'
-import { projects } from '../../data/site'
+import { isPlayable, projects } from '../../data/site'
 import Clip from '../Clip'
 import { ArrowUpRight, Chevron } from '../Icons'
 import Slide from '../Slide'
@@ -34,7 +34,8 @@ function Projects() {
             if (d > N / 2) d -= N
             const a = Math.min(Math.abs(d), 3)
             const sign = d < 0 ? -1 : 1
-            const cardSrc = p.cardVideo ?? p.video // the card is square, so a game can have its own square cut
+            const cardSrc = p.cardVideo ?? p.video // the card is square, so a project can have its own square cut and still
+            const cardImg = p.cardImage ?? p.image
             return (
               <li
                 key={p.title}
@@ -54,9 +55,9 @@ function Projects() {
                   tabIndex={n === i ? 0 : -1}
                 >
                   {/* square card, 16:9 shot: crop a little left of centre so a board-style game keeps its board in view */}
-                  <span className="card-cover" style={{ background: p.image ? `url(${p.image}) 25% center / cover` : p.cover }}>
-                    {!p.image && <em aria-hidden="true">{p.title}</em>}
-                    {cardSrc && n === i && <Clip slide="projects" src={cardSrc} poster={p.image} className="card-video" />}
+                  <span className="card-cover" style={{ background: cardImg ? `url(${cardImg}) 25% center / cover` : p.cover }}>
+                    {!cardImg && <em aria-hidden="true">{p.title}</em>}
+                    {cardSrc && n === i && <Clip slide="projects" src={cardSrc} poster={cardImg} className="card-video" />}
                   </span>
                 </button>
               </li>
@@ -95,7 +96,7 @@ function Projects() {
               </a>
             ))}
           </p>
-          <p className="play-note">Needs a keyboard. Best on a computer.</p>
+          {isPlayable(cur) && <p className="play-note">Needs a keyboard. Best on a computer.</p>}
         </div>
       </div>
     </Slide>
