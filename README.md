@@ -1,6 +1,6 @@
 # Portfolio
 
-The personal portfolio of **RubahAnomali**: web and game developer, cyber security student. A single page of full-screen slides, with dark and light themes, an animations switch, six games you can play in the browser, and a photography gallery.
+The personal portfolio of **RubahAnomali**: web and game developer, cyber security student. A single page of full-screen slides, with dark and light themes, six games you can play in the browser, and a photography gallery.
 
 **Live site: [rubahanomali.vercel.app](https://rubahanomali.vercel.app)**
 
@@ -54,8 +54,7 @@ The Updates slide reads the latest public repositories from the GitHub API and f
 
 ## Motion and accessibility
 
-- The nav has an **Animations** switch. Turning it off stops the page transitions, the hero clips and the entrance effects.
-- The first visit follows the system "reduce motion" setting.
+- Animations follow the device's "reduce motion" setting; with it on, page transitions, hero clips and entrance effects are off.
 - The page moves one slide per wheel tick, arrow key or Page key, and all slides stay reachable from the nav.
 - At 960 px wide or less the page scrolls normally.
 

@@ -35,14 +35,14 @@
       } catch (e) {}
       var m = null;
       try {
-        // The saved choice lives under a new key ("motion-pref"): earlier builds saved an "off" choice under "motion",
-        // which kept animations off in a browser long after the default changed. Old values are now ignored.
-        var q = new URLSearchParams(location.search).get('motion');
-        if (q === 'full' || q === 'reduced') localStorage.setItem('motion-pref', q);
+        // Old builds saved a choice from the (now removed) Animations switch; clear it so it cannot stick.
         localStorage.removeItem('motion');
-        m = localStorage.getItem('motion-pref');
+        localStorage.removeItem('motion-pref');
+        // ?motion=full|reduced forces a mode for this page view only (handy for testing).
+        var q = new URLSearchParams(location.search).get('motion');
+        if (q === 'full' || q === 'reduced') m = q;
       } catch (e) {}
-      // A choice the visitor made with the nav switch wins. Without one, follow the device's "reduce motion" setting.
+      // Otherwise follow the device's "reduce motion" setting.
       if (m !== 'full' && m !== 'reduced') {
         m = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full';
       }
