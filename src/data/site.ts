@@ -189,7 +189,7 @@ export const socials: Social[] = [
 ]
 
 export const updates: UpdateItem[] = [
-  { title: 'Drowned Bell — 2D soulslike made in Unity', date: '2026.11.26', tag: 'Game', href: 'https://github.com/RubahAnomali/drowned-bell', cover: 'linear-gradient(120deg, #0b0f14, #2f4b55 60%, #d79a3b)', image: '/media/games/drowned-bell.jpg' },
+  { title: 'Drowned Bell — 2D soulslike made in Unity', date: '2026.11.26', tag: 'Game', href: 'https://github.com/RubahAnomali/drowned-bell', cover: 'linear-gradient(120deg, #0b0f14, #2f4b55 60%, #d79a3b)', image: '/media/games/drowned-bell.jpg', video: '/media/games/drowned-bell.mp4' },
   { title: 'patchlint — security linter for Dockerfiles and GitHub Actions', date: '2026.11.25', tag: 'Security', href: 'https://github.com/RubahAnomali/patchlint', cover: 'linear-gradient(120deg, #07141a, #0b7894 60%, #ff7a59)', image: '/media/projects/patchlint.jpg', video: '/media/projects/patchlint.mp4' },
   { title: 'Packet Ghost — network stealth and infiltration', date: '2026.11.25', tag: 'Game', href: 'https://github.com/RubahAnomali/packet-ghost', cover: 'linear-gradient(120deg, #0a1014, #2c6f66 60%, #ff5a3c)', image: '/media/games/packet-ghost.jpg', video: '/media/games/packet-ghost.mp4' },
   { title: 'Slingshot Salvage — orbital salvage game', date: '2026.11.10', tag: 'Game', href: 'https://github.com/RubahAnomali/slingshot-salvage', cover: 'linear-gradient(120deg, #0a2a5e, #2a6fd6 60%, #e8c25a)', image: '/media/games/slingshot-salvage.jpg', video: '/media/games/slingshot-salvage.mp4' },
@@ -325,6 +325,7 @@ export const projects: Project[] = [
     ],
     cover: 'linear-gradient(135deg, #0b0f14, #2f4b55 55%, #d79a3b)',
     image: '/media/games/drowned-bell.jpg',
+    video: '/media/games/drowned-bell.mp4',
   },
   {
     title: 'patchlint',
