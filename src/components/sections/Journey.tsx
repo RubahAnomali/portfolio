@@ -1,6 +1,5 @@
 import { memo, useState } from 'react'
 import { chapters, profile } from '../../data/site'
-import { Chevron } from '../Icons'
 import Slide from '../Slide'
 
 // Fan layout for the stack on the right (matches the reference's tilt values).
@@ -39,17 +38,16 @@ function Journey() {
           </ul>
         </div>
 
-        <div className="stack-wrap enter" data-enter="right" style={{ ['--i' as string]: 1 }}>
-          <div className="v-slider" role="group" aria-label="Chapters">
-            <button type="button" onClick={() => go(i - 1)} aria-label="Previous chapter">
-              <Chevron dir="left" />
-            </button>
-            <span aria-hidden="true" />
-            <button type="button" onClick={() => go(i + 1)} aria-label="Next chapter">
-              <Chevron dir="right" />
-            </button>
-          </div>
-          <ol className="fan">
+        <div
+          className="stack-wrap enter"
+          data-enter="right"
+          style={{ ['--i' as string]: 1 }}
+          onKeyDown={(e) => {
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') go(i + 1)
+            if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') go(i - 1)
+          }}
+        >
+          <ol className="fan" aria-label="Chapters">
             {chapters.map((c, n) => {
               // shortest signed distance on the loop, so cards show on both sides of the selected one
               let d = (((n - i) % N) + N) % N

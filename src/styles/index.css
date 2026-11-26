@@ -1336,28 +1336,6 @@ html[data-motion='reduced'] :is(.card-video, .feature-video, .hero-video) {
   color: #fff;
   text-shadow: 0 2px 8px rgb(0 0 0 / 0.6);
 }
-.car-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.2rem;
-  margin-top: clamp(0.8rem, 2.5svh, 1.4rem);
-  font-family: var(--display);
-  letter-spacing: 0.15em;
-}
-.car-controls button {
-  display: grid;
-  place-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border: 2px solid var(--ink);
-  background: transparent;
-  transition: background 0.2s, color 0.2s;
-}
-.car-controls button:hover:not(:disabled) {
-  background: var(--ink);
-  color: #fff;
-}
 .car-detail {
   max-width: 38rem;
   margin: clamp(0.5rem, 2svh, 1.2rem) auto 0;
@@ -1479,32 +1457,6 @@ html[data-motion='reduced'] :is(.card-video, .feature-video, .hero-video) {
   align-items: center;
   gap: 1rem;
   min-height: min(24rem, 52svh);
-}
-.v-slider {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
-  z-index: 8;
-}
-.v-slider button {
-  display: grid;
-  place-items: center;
-  width: 2.2rem;
-  height: 2.2rem;
-  border: 2px solid var(--ink);
-  background: rgb(255 255 255 / 0.6);
-}
-.v-slider button:first-child svg {
-  transform: rotate(-90deg);
-}
-.v-slider button:last-child svg {
-  transform: rotate(90deg);
-}
-.v-slider span {
-  width: 2px;
-  height: 3.5rem;
-  background: var(--ink);
 }
 .fan {
   position: relative;
@@ -2115,20 +2067,12 @@ html[data-theme='dark'] {
 [data-theme='dark'] .card {
   box-shadow: 0 8px 26px rgb(0 0 0 / 0.6);
 }
-[data-theme='dark'] .car-controls button:hover:not(:disabled),
-[data-theme='dark'] .v-slider button:hover:not(:disabled) {
-  background: var(--ink);
-  color: #0b1013;
-}
 [data-theme='dark'] .car-links a:hover,
 [data-theme='dark'] .contact-links a:hover {
   color: var(--teal-bright);
 }
 
 /* journey */
-[data-theme='dark'] .v-slider button {
-  background: rgb(255 255 255 / 0.06);
-}
 [data-theme='dark'] .fan button {
   background: var(--panel);
   border-color: var(--panel-line);

@@ -14,11 +14,6 @@ const base: SVGProps<SVGSVGElement> = {
   focusable: false,
 }
 
-export const Chevron = ({ dir = 'right' }: { dir?: 'left' | 'right' | 'down' }) => (
-  <svg {...base} style={{ transform: `rotate(${dir === 'left' ? 180 : dir === 'down' ? 90 : 0}deg)` }}>
-    <path d="m9 5 7 7-7 7" />
-  </svg>
-)
 export const DoubleChevron = () => (
   <svg {...base}>
     <path d="m6 6 6 6-6 6M13 6l6 6-6 6" />

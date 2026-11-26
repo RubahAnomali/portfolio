@@ -1,7 +1,7 @@
 import { memo, useState } from 'react'
 import { isPlayable, projects } from '../../data/site'
 import Clip from '../Clip'
-import { ArrowUpRight, Chevron } from '../Icons'
+import { ArrowUpRight } from '../Icons'
 import Slide from '../Slide'
 
 // Coverflow layout (matches the reference): active at scale 1, neighbours shrink and tuck behind.
@@ -52,7 +52,6 @@ function Projects() {
                   onClick={() => setI(n)}
                   aria-label={`${p.title}${n === i ? ' (selected)' : ''}`}
                   aria-current={n === i ? 'true' : undefined}
-                  tabIndex={n === i ? 0 : -1}
                 >
                   {/* square card, 16:9 shot: crop a little left of centre so a board-style game keeps its board in view */}
                   <span className="card-cover" style={{ background: cardImg ? `url(${cardImg}) 25% center / cover` : p.cover }}>
@@ -64,18 +63,6 @@ function Projects() {
             )
           })}
         </ul>
-
-        <div className="car-controls enter" data-enter="up" style={{ ['--i' as string]: 1 }}>
-          <button type="button" onClick={() => go(i - 1)} aria-label="Previous project">
-            <Chevron dir="left" />
-          </button>
-          <span aria-live="polite">
-            {String(i + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
-          </span>
-          <button type="button" onClick={() => go(i + 1)} aria-label="Next project">
-            <Chevron />
-          </button>
-        </div>
 
         <div className="car-detail enter" data-enter="up" style={{ ['--i' as string]: 2 }} aria-live="polite">
           <p className="mini-title">
