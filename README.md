@@ -54,7 +54,7 @@ The Updates slide reads the latest public repositories from the GitHub API and f
 
 ## Motion and accessibility
 
-- Animations follow the device's "reduce motion" setting; with it on, page transitions, hero clips and entrance effects are off.
+- Animations are always on. Adding `?motion=reduced` to the address turns them off for that page view.
 - The page moves one slide per wheel tick, arrow key or Page key, and all slides stay reachable from the nav.
 - At 960 px wide or less the page scrolls normally.
 

@@ -42,10 +42,8 @@
         var q = new URLSearchParams(location.search).get('motion');
         if (q === 'full' || q === 'reduced') m = q;
       } catch (e) {}
-      // Otherwise follow the device's "reduce motion" setting.
-      if (m !== 'full' && m !== 'reduced') {
-        m = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full';
-      }
+      // Animations are on by default, whatever the device's "reduce motion" setting says.
+      if (m !== 'full' && m !== 'reduced') m = 'full';
       document.documentElement.dataset.motion = m;
     </script>
     <title>RubahAnomali — Web & Game Developer</title>
