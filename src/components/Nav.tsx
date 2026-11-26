@@ -2,7 +2,6 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { navItems, profile } from '../data/site'
 import { Menu } from './Icons'
 import MotionToggle from './MotionToggle'
-import SoundToggle from './SoundToggle'
 import ThemeToggle from './ThemeToggle'
 
 export default function Nav({ active }: { active: string }) {
@@ -50,7 +49,6 @@ export default function Nav({ active }: { active: string }) {
         <a className="nav-pill" href="#contact">
           Get in touch
         </a>
-        <SoundToggle />
         <MotionToggle />
         <ThemeToggle />
         <button

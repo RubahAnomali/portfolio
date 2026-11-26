@@ -2669,12 +2669,6 @@ html::-webkit-scrollbar {
    Second pass against the reference recording
    ===================================================================== */
 
-/* music button state */
-.sound-toggle.is-on {
-  background: var(--teal);
-  border-color: var(--teal-bright);
-}
-
 /* discover: the map tips back into a 3D view once discovered, region labels stand up facing the viewer */
 .map-canvas {
   perspective: 1800px;
