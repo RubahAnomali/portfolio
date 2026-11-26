@@ -140,7 +140,7 @@ export const roster: RosterEntry[] = [
     blurb: 'Shaders, real-time graphics and game mechanics.',
     bio: [
       'Real-time WebGL graphics, shaders and game mechanics are where I spend most of my free time.',
-      'Five browser games shipped so far: tactical, action, 3D, physics and network stealth, all drawn procedurally with synthesised audio.',
+      'Six games you can play in the browser so far: tactical, action, 3D, physics, network stealth and a Unity soulslike, all drawn procedurally with synthesised audio.',
     ],
     stats: [{ label: 'Game Dev & WebGL', value: 85 }],
   },
@@ -189,6 +189,7 @@ export const socials: Social[] = [
 ]
 
 export const updates: UpdateItem[] = [
+  { title: 'Drowned Bell — 2D soulslike made in Unity', date: '2026.11.26', tag: 'Game', href: 'https://github.com/RubahAnomali/drowned-bell', cover: 'linear-gradient(120deg, #0b0f14, #2f4b55 60%, #d79a3b)', image: '/media/games/drowned-bell.jpg' },
   { title: 'patchlint — security linter for Dockerfiles and GitHub Actions', date: '2026.11.25', tag: 'Security', href: 'https://github.com/RubahAnomali/patchlint', cover: 'linear-gradient(120deg, #07141a, #0b7894 60%, #ff7a59)', image: '/media/projects/patchlint.jpg', video: '/media/projects/patchlint.mp4' },
   { title: 'Packet Ghost — network stealth and infiltration', date: '2026.11.25', tag: 'Game', href: 'https://github.com/RubahAnomali/packet-ghost', cover: 'linear-gradient(120deg, #0a1014, #2c6f66 60%, #ff5a3c)', image: '/media/games/packet-ghost.jpg', video: '/media/games/packet-ghost.mp4' },
   { title: 'Slingshot Salvage — orbital salvage game', date: '2026.11.10', tag: 'Game', href: 'https://github.com/RubahAnomali/slingshot-salvage', cover: 'linear-gradient(120deg, #0a2a5e, #2a6fd6 60%, #e8c25a)', image: '/media/games/slingshot-salvage.jpg', video: '/media/games/slingshot-salvage.mp4' },
@@ -210,7 +211,7 @@ export const skillNodes: SkillNode[] = [
     id: 'games',
     title: 'Game Dev',
     blurb: 'Shaders, real-time graphics and game mechanics.',
-    items: ['Game Development', 'WebGL', 'Canvas 2D', 'Three.js', 'WebAudio synthesis', 'Utility AI', 'HFSM'],
+    items: ['Game Development', 'Unity / C#', 'WebGL', 'Canvas 2D', 'Three.js', 'WebAudio synthesis', 'Utility AI', 'HFSM'],
     col: 7,
     row: 2,
   },
@@ -313,6 +314,19 @@ export const projects: Project[] = [
     video: '/media/games/packet-ghost.mp4',
   },
   {
+    title: 'Drowned Bell',
+    kind: 'Unity game',
+    year: 'Nov 2026',
+    summary: 'A short 2D soulslike made in Unity. A salvage diver climbs down a flooded bell tower: read enemy wind-ups, jump the floor ripples, open a shortcut back to the lamp and silence the Undertoll, a boss with three telegraphed attacks.',
+    tags: ['Unity', 'C#', 'Pixel art', 'FSM'],
+    links: [
+      { label: 'Play', href: '/games/drowned-bell/' },
+      { label: 'Source', href: 'https://github.com/RubahAnomali/drowned-bell' },
+    ],
+    cover: 'linear-gradient(135deg, #0b0f14, #2f4b55 55%, #d79a3b)',
+    image: '/media/games/drowned-bell.jpg',
+  },
+  {
     title: 'patchlint',
     kind: 'Security tool',
     year: 'Nov 2026',
@@ -336,6 +350,13 @@ export const isPlayable = (p: Project) => p.links[0]?.label === 'Play'
 export const isGameHref = (href: string) => projects.some((p) => isPlayable(p) && p.links.some((l) => l.href === href))
 
 export const chapters: Chapter[] = [
+  {
+    period: 'Nov 2026',
+    role: 'Drowned Bell',
+    company: 'Soulslike · Unity, C#',
+    points: ['A 2D soulslike in Unity: seven connected rooms, enemies with readable wind-ups, a checkpoint, an unlockable shortcut and a three-attack boss.', 'Game rules in plain C# with a headless test suite, plus an autopilot bot that plays the real build from start to finish for QA.'],
+    image: '/media/games/drowned-bell.jpg',
+  },
   {
     period: 'Nov 2026',
     role: 'patchlint',

@@ -1,6 +1,6 @@
 # Portfolio
 
-The personal portfolio of **RubahAnomali**: web and game developer, cyber security student. A single page of full-screen slides, with dark and light themes, an animations switch, five games you can play in the browser, and a photography gallery.
+The personal portfolio of **RubahAnomali**: web and game developer, cyber security student. A single page of full-screen slides, with dark and light themes, an animations switch, six games you can play in the browser, and a photography gallery.
 
 **Live site: [rubahanomali.vercel.app](https://rubahanomali.vercel.app)**
 
@@ -29,15 +29,16 @@ The site is deployed on Vercel from this repository: every push to `main` builds
 
 ## The games
 
-Five games are playable from the Projects slide. Each one is its own repository:
+Six games are playable from the Projects slide. Each one is its own repository:
 
 - [Breach Protocol](https://github.com/RubahAnomali/breach-protocol): turn-based tactics
 - [Cyber-Parry Arena](https://github.com/RubahAnomali/cyber-parry-arena): top-down arena action
 - [Kinetic Courier](https://github.com/RubahAnomali/kinetic-courier): first-person grapple-hook time trial
 - [Slingshot Salvage](https://github.com/RubahAnomali/slingshot-salvage): orbital physics
 - [Packet Ghost](https://github.com/RubahAnomali/packet-ghost): real-time network stealth
+- [Drowned Bell](https://github.com/RubahAnomali/drowned-bell): 2D soulslike made in Unity (its web build comes from the Unity editor, `Drowned Bell > Build Web`)
 
-Their production builds are copied into `public/games/<name>/` so the site can host them. To refresh them, clone the five repos into a folder named `game dev porto/` next to `package.json` and run:
+Their production builds are copied into `public/games/<name>/` so the site can host them. To refresh them, clone the six repos into a folder named `game dev porto/` next to `package.json` and run:
 
 ```bash
 npm run sync:games
