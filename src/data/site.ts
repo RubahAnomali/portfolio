@@ -95,7 +95,7 @@ export const profile = {
    *  puts the frame's top edge at the seat (the `--seat` value in index.css), so a different picture needs that value
    *  checked. Leave undefined to show a silhouette. */
   photo: '/media/portrait.webp' as string | undefined,
-  email: 'farrellfyelo@gmail.com',
+  email: 'rubahanomali@gmail.com',
   /** Path or URL of your résumé PDF (e.g. '/resume.pdf' in /public). Leave empty to hide the button. */
   resumeHref: '',
   location: 'Tangerang, Indonesia',
