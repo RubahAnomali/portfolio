@@ -317,7 +317,7 @@ export const projects: Project[] = [
     title: 'Drowned Bell',
     kind: 'Unity game',
     year: 'Nov 2026',
-    summary: 'A short 2D soulslike made in Unity. A salvage diver climbs down a flooded bell tower: read enemy wind-ups, jump the floor ripples, open a shortcut back to the lamp and silence the Undertoll, a boss with three telegraphed attacks.',
+    summary: 'A 2D soulslike made in Unity, two chapters long. A salvage diver silences the Undertoll, a bell with three telegraphed attacks, then follows the pressure mains through the Sluice Works to the Pump Warden. Readable wind-ups, unlockable shortcuts, and progress that saves at every lamp.',
     tags: ['Unity', 'C#', 'Pixel art', 'FSM'],
     links: [
       { label: 'Play', href: '/games/drowned-bell/' },
@@ -355,7 +355,7 @@ export const chapters: Chapter[] = [
     period: 'Nov 2026',
     role: 'Drowned Bell',
     company: 'Soulslike · Unity, C#',
-    points: ['A 2D soulslike in Unity: seven connected rooms, enemies with readable wind-ups, a checkpoint, an unlockable shortcut and a three-attack boss.', 'Game rules in plain C# with a headless test suite, plus an autopilot bot that plays the real build from start to finish for QA.'],
+    points: ['A 2D soulslike in Unity: two seven-room chapters, four enemy types with readable wind-ups, checkpoints, unlockable shortcuts and two bosses, with save and continue.', 'Game rules in plain C# with a headless test suite, plus an autopilot bot that plays the real build from start to finish for QA.'],
     image: '/media/games/drowned-bell.jpg',
   },
   {

@@ -33,6 +33,8 @@
         companyName: "RubahAnomali",
         productName: "Drowned Bell",
         productVersion: "1.0",
+        // Keep the save file (persistentDataPath) in the browser between visits.
+        autoSyncPersistentDataPath: true,
       }, (progress) => {
         document.querySelector("#fill").style.width = 100 * progress + "%";
       }).then(() => {
