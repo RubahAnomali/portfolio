@@ -59,32 +59,40 @@ function About() {
           </div>
         </div>
 
-        <div className="about-stage enter" data-enter="left" style={{ ['--i' as string]: 2 }} aria-hidden={profile.photo ? undefined : true}>
+        <div className="about-stage" aria-hidden={profile.photo ? undefined : true}>
           {/* the figure sits inside the frame, on its bottom border: the border is the seat */}
           <div className="white-square" aria-hidden="true" />
           {/* the art re-enters from the left whenever another facet is picked */}
           <div className="stage-art" key={cur.id}>
             {/* an open hexagon behind the torso, inside the frame, and wings that run out through the frame's sides */}
             <svg className="stage-deco" viewBox="0 0 600 346" aria-hidden="true" focusable="false">
-              <path className="deco-line" d="M150 173H8M450 173H592" />
-              <circle className="deco-hex-in" cx="300" cy="173" r="124" />
-              <circle className="deco-hex" cx="300" cy="173" r="150" strokeDasharray="200 36" transform="rotate(-100 300 173)" />
-              {Array.from({ length: 24 }, (_, n) => {
-                const a = (n * Math.PI) / 12
-                const r0 = n % 2 ? 160 : 158
-                const r1 = n % 2 ? 168 : 176
-                return (
-                  <path
-                    key={n}
-                    className="deco-line"
-                    d={`M${(300 + r0 * Math.cos(a)).toFixed(1)} ${(173 + r0 * Math.sin(a)).toFixed(1)}L${(300 + r1 * Math.cos(a)).toFixed(1)} ${(173 + r1 * Math.sin(a)).toFixed(1)}`}
-                  />
-                )
-              })}
-              <path className="deco-chev" d="M48 157L32 173L48 189M24 157L8 173L24 189M552 157L568 173L552 189M576 157L592 173L576 189" />
-              {['150,173', '300,23', '450,173'].map((p) => (
-                <circle key={p} className="deco-dot" cx={p.split(',')[0]} cy={p.split(',')[1]} r="5" />
-              ))}
+              <g className="deco-wing deco-wing-l">
+                <path className="deco-line" d="M150 173H8" />
+                <path className="deco-chev" d="M48 157L32 173L48 189M24 157L8 173L24 189" />
+              </g>
+              <g className="deco-wing deco-wing-r">
+                <path className="deco-line" d="M450 173H592" />
+                <path className="deco-chev" d="M552 157L568 173L552 189M576 157L592 173L576 189" />
+              </g>
+              <g className="deco-ring">
+                <circle className="deco-hex-in" cx="300" cy="173" r="124" />
+                <circle className="deco-hex" cx="300" cy="173" r="150" strokeDasharray="200 36" transform="rotate(-100 300 173)" />
+                {Array.from({ length: 24 }, (_, n) => {
+                  const a = (n * Math.PI) / 12
+                  const r0 = n % 2 ? 160 : 158
+                  const r1 = n % 2 ? 168 : 176
+                  return (
+                    <path
+                      key={n}
+                      className="deco-line"
+                      d={`M${(300 + r0 * Math.cos(a)).toFixed(1)} ${(173 + r0 * Math.sin(a)).toFixed(1)}L${(300 + r1 * Math.cos(a)).toFixed(1)} ${(173 + r1 * Math.sin(a)).toFixed(1)}`}
+                    />
+                  )
+                })}
+                {['150,173', '300,23', '450,173'].map((p) => (
+                  <circle key={p} className="deco-dot" cx={p.split(',')[0]} cy={p.split(',')[1]} r="5" />
+                ))}
+              </g>
             </svg>
             {profile.photo ? (
               <img src={profile.photo} alt={`Portrait of ${profile.name}`} />

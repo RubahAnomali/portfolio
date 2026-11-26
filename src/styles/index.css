@@ -813,13 +813,53 @@ button:disabled {
   color: var(--ink);
   pointer-events: none;
 }
-.slide.is-active .stage-deco {
-  animation: deco-in 0.9s var(--expo) 0.3s both;
+/* Entrance, in order: the frame wipes up, the ring spins in, the wings shoot out from it, and the figure rises into
+   the frame. Reduced motion turns all of it off (see the global rule), so the finished stage is simply shown. */
+.slide.is-active .white-square {
+  animation: frame-in 0.7s var(--expo) 0.1s both;
 }
-@keyframes deco-in {
+@keyframes frame-in {
   from {
-    transform: translate(-50%, -50%) scale(0.85);
+    clip-path: inset(100% -40px -40px -40px);
+  }
+}
+.deco-ring,
+.deco-wing {
+  transform-box: fill-box;
+}
+.slide.is-active .deco-ring {
+  transform-origin: center;
+  animation: ring-in 1.1s var(--expo) 0.35s both;
+}
+@keyframes ring-in {
+  from {
     opacity: 0;
+    transform: rotate(-140deg) scale(0.5);
+  }
+}
+.deco-wing-l {
+  transform-origin: right center;
+}
+.deco-wing-r {
+  transform-origin: left center;
+}
+.slide.is-active .deco-wing {
+  animation: wing-in 0.7s var(--expo) 0.8s both;
+}
+@keyframes wing-in {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+}
+.slide.is-active .about-stage img,
+.slide.is-active .about-stage .portrait-ph {
+  animation: figure-in 0.9s var(--expo) 0.45s both;
+}
+@keyframes figure-in {
+  from {
+    opacity: 0;
+    transform: translateY(3.5rem);
   }
 }
 .deco-line {
@@ -2164,15 +2204,6 @@ html[data-theme='dark'] {
   display: grid;
   grid-template: 100% / 100%; /* a definite area, so the figure can take a percentage of its height */
   place-items: end center;
-}
-.slide.is-active .stage-art {
-  animation: role-in 0.8s var(--expo) 0.1s both;
-}
-@keyframes role-in {
-  from {
-    opacity: 0;
-    transform: translateX(-10rem);
-  }
 }
 .roster {
   display: flex;
