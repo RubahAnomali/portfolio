@@ -60,18 +60,17 @@ function About() {
         </div>
 
         <div className="about-stage enter" data-enter="left" style={{ ['--i' as string]: 2 }} aria-hidden={profile.photo ? undefined : true}>
-          {/* the frame is the ledge the figure sits on: its top edge is at the figure's seat */}
+          {/* the figure sits inside the frame, on its bottom border: the border is the seat */}
           <div className="white-square" aria-hidden="true" />
           {/* the art re-enters from the left whenever another facet is picked */}
           <div className="stage-art" key={cur.id}>
-            {/* an open hexagon behind the figure that rises above the frame and reaches down into it, and wings that run
-                out past the frame's sides */}
-            <svg className="stage-deco" viewBox="0 0 528 346" aria-hidden="true" focusable="false">
-              <path className="deco-line" d="M94 173H10M434 173H518" />
-              <path className="deco-hex-in" d="M178 266L124 173L194 51.8H334L404 173L350 266" />
-              <path className="deco-hex" d="M149 266L94 173L179 25.8H349L434 173L379 266" />
-              <path className="deco-chev" d="M66 153L48 173L66 193M38 153L20 173L38 193M462 153L480 173L462 193M490 153L508 173L490 193" />
-              {['94,173', '179,25.8', '349,25.8', '434,173'].map((p) => (
+            {/* an open hexagon behind the torso, inside the frame, and wings that run out through the frame's sides */}
+            <svg className="stage-deco" viewBox="0 0 600 346" aria-hidden="true" focusable="false">
+              <path className="deco-line" d="M130 173H8M470 173H592" />
+              <path className="deco-hex-in" d="M228 290L160 173L230 51.8H370L440 173L372 290" />
+              <path className="deco-hex" d="M203 300L130 173L215 25.8H385L470 173L397 300" />
+              <path className="deco-chev" d="M48 157L32 173L48 189M24 157L8 173L24 189M552 157L568 173L552 189M576 157L592 173L576 189" />
+              {['130,173', '215,25.8', '385,25.8', '470,173'].map((p) => (
                 <circle key={p} className="deco-dot" cx={p.split(',')[0]} cy={p.split(',')[1]} r="5" />
               ))}
             </svg>
