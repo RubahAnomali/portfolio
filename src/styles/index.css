@@ -441,6 +441,9 @@ button:disabled {
   background:
     radial-gradient(circle at 12% 18%, rgb(255 255 255 / 0.5), transparent 40%),
     radial-gradient(rgb(255 255 255 / 0.28) 0.8px, transparent 1.2px) 0 0 / 4px 4px;
+  /* fade the texture out at the top and bottom so it never ends on a hard edge between slides */
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
 }
 .slide-discover {
   background: transparent;
