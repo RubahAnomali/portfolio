@@ -12,6 +12,8 @@ export interface Social {
 }
 
 export interface Project {
+  /** Listed in the hero and the Games tabs even without a browser build (a "Play" link is not needed). */
+  featured?: boolean
   title: string
   kind: string
   /** Month and year shown next to the kind, e.g. 'Aug 2026'. */
@@ -320,9 +322,9 @@ export const projects: Project[] = [
     summary: 'A 2D soulslike made in Unity, four chapters long. A salvage diver silences the Undertoll, follows the pressure mains through the Sluice Works to the Pump Warden, descends into the Sounding Archive to face the Archivist of Depths, then reverses the tide in the Tidal Engine against the Tidekeeper and walks out into the morning. Heavy hits, delayed swings and bosses that fight in a different order every run. Progress saves at every lamp.',
     tags: ['Unity', 'C#', 'Pixel art', 'FSM'],
     links: [
-      { label: 'Play', href: '/games/drowned-bell/' },
       { label: 'Source', href: 'https://github.com/RubahAnomali/drowned-bell' },
     ],
+    featured: true,
     cover: 'linear-gradient(135deg, #0b0f14, #2f4b55 55%, #d79a3b)',
     image: '/media/games/drowned-bell.jpg',
     video: '/media/games/drowned-bell.mp4',
@@ -347,8 +349,10 @@ export const projects: Project[] = [
 
 /** Games you can play in the browser: their first link is "Play". The hero and the Games tabs only list these. */
 export const isPlayable = (p: Project) => p.links[0]?.label === 'Play'
-/** True when `href` is the repository or play link of a playable project. */
-export const isGameHref = (href: string) => projects.some((p) => isPlayable(p) && p.links.some((l) => l.href === href))
+/** Games shown in the hero and the Games tabs: the playable ones, and the featured ones without a browser build. */
+export const isFeatured = (p: Project) => isPlayable(p) || !!p.featured
+/** True when `href` is the repository or play link of a game project. */
+export const isGameHref = (href: string) => projects.some((p) => isFeatured(p) && p.links.some((l) => l.href === href))
 
 export const chapters: Chapter[] = [
   {

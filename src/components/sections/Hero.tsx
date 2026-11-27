@@ -1,5 +1,5 @@
 import { memo, useEffect, useState } from 'react'
-import { isPlayable, profile, projects as allProjects } from '../../data/site'
+import { isFeatured, profile, projects as allProjects } from '../../data/site'
 import Clip from '../Clip'
 import Slide from '../Slide'
 
@@ -7,7 +7,7 @@ import Slide from '../Slide'
 const FADE = 900
 const noop = () => undefined
 /** The hero features the playable games; other projects (such as the security tool) only appear in the Projects slide. */
-const projects = allProjects.filter(isPlayable)
+const projects = allProjects.filter(isFeatured)
 
 function Hero() {
   const [i, setI] = useState(0)

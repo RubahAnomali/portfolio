@@ -13,6 +13,7 @@ mkdirSync(out, { recursive: true })
 for (const name of readdirSync(src)) {
   const dir = join(src, name)
   if (!statSync(dir).isDirectory()) continue
+  if (name === 'drowned-bell') continue // no longer played in the browser on the site
   const unityWeb = join(dir, 'Builds', 'WebGL')
   let built
   if (existsSync(join(dir, 'package.json'))) {
