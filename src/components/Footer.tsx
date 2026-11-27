@@ -1,5 +1,6 @@
 import { memo } from 'react'
 import { profile } from '../data/site'
+import { openMail } from '../lib/mail'
 
 function Footer() {
   return (
@@ -20,7 +21,10 @@ function Footer() {
           <a href="#projects">Projects</a>
         </li>
         <li>
-          <a href={`mailto:${profile.email}`}>Contact</a>
+          <a href={`mailto:${profile.email}`} onClick={openMail(profile.email)}>
+            Contact
+            <span className="sr-only"> (opens your email)</span>
+          </a>
         </li>
         <li>
           <a href="#home">Back to top</a>

@@ -1,5 +1,6 @@
 import { memo } from 'react'
-import { socials } from '../data/site'
+import { profile, socials } from '../data/site'
+import { openMail } from '../lib/mail'
 import { SocialIcon } from './Icons'
 
 /**
@@ -15,7 +16,7 @@ function SocialRail() {
         {socials.map((s) => (
           <li key={s.label}>
             {s.href ? (
-              <a href={s.href} target={s.href.startsWith('http') ? '_blank' : undefined} rel="noreferrer" aria-label={s.label} title={s.label}>
+              <a href={s.href} target={s.href.startsWith('http') ? '_blank' : undefined} rel="noreferrer" aria-label={s.label} title={s.label} onClick={s.icon === 'mail' ? openMail(profile.email) : undefined}>
                 <SocialIcon icon={s.icon} size={26} />
               </a>
             ) : (

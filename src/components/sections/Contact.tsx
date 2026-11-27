@@ -1,5 +1,6 @@
 import { memo } from 'react'
 import { profile, socials } from '../../data/site'
+import { openMail } from '../../lib/mail'
 import Slide from '../Slide'
 
 function Contact() {
@@ -12,7 +13,7 @@ function Contact() {
           <br />
           Let’s talk.
         </h3>
-        <a className="discover discover-static enter" data-enter="up" style={{ ['--i' as string]: 2 }} href={`mailto:${profile.email}`}>
+        <a className="discover discover-static enter" data-enter="up" style={{ ['--i' as string]: 2 }} href={`mailto:${profile.email}`} onClick={openMail(profile.email)}>
           <span>{profile.email}</span>
         </a>
         <ul className="contact-links enter" data-enter="up" style={{ ['--i' as string]: 3 }}>
