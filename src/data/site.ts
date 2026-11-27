@@ -317,7 +317,7 @@ export const projects: Project[] = [
     title: 'Drowned Bell',
     kind: 'Unity game',
     year: 'Nov 2026',
-    summary: 'A 2D soulslike made in Unity, three chapters long. A salvage diver silences the Undertoll, a bell with three telegraphed attacks, then follows the pressure mains through the Sluice Works to the Pump Warden and descends into the Sounding Archive to face the Archivist of Depths. Heavy hits, delayed swings and bosses that fight in a different order every run. Progress saves at every lamp.',
+    summary: 'A 2D soulslike made in Unity, four chapters long. A salvage diver silences the Undertoll, follows the pressure mains through the Sluice Works to the Pump Warden, descends into the Sounding Archive to face the Archivist of Depths, then reverses the tide in the Tidal Engine against the Tidekeeper and walks out into the morning. Heavy hits, delayed swings and bosses that fight in a different order every run. Progress saves at every lamp.',
     tags: ['Unity', 'C#', 'Pixel art', 'FSM'],
     links: [
       { label: 'Play', href: '/games/drowned-bell/' },
@@ -355,7 +355,7 @@ export const chapters: Chapter[] = [
     period: 'Nov 2026',
     role: 'Drowned Bell',
     company: 'Soulslike · Unity, C#',
-    points: ['A 2D soulslike in Unity: three chapters and twenty rooms, enemies with readable wind-ups, checkpoints, unlockable shortcuts and three bosses that pick their attacks at random, so no two saves fight alike.', 'Game rules in plain C# with a headless test suite, plus an autopilot bot that plays the real build from start to finish for QA, pixel art, synthesised sound and save and continue.'],
+    points: ['A 2D soulslike in Unity: four chapters and twenty-seven rooms, enemies with readable wind-ups, checkpoints, unlockable shortcuts and four bosses that pick their attacks at random, so no two saves fight alike.', 'Game rules in plain C# with a headless test suite, plus an autopilot bot that plays the real build from start to finish for QA, pixel art, synthesised sound and save and continue.'],
     image: '/media/games/drowned-bell.jpg',
   },
   {
