@@ -189,7 +189,7 @@ export const socials: Social[] = [
 ]
 
 export const updates: UpdateItem[] = [
-  { title: 'Drowned Bell — 2D soulslike made in Unity', date: '2026.11.26', tag: 'Game', href: 'https://github.com/RubahAnomali/drowned-bell', cover: 'linear-gradient(120deg, #0b0f14, #2f4b55 60%, #d79a3b)', image: '/media/games/drowned-bell.jpg', video: '/media/games/drowned-bell.mp4' },
+  { title: 'Drowned Bell — 2D soulslike made in Unity', date: '2026.11.27', tag: 'Game', href: 'https://github.com/RubahAnomali/drowned-bell', cover: 'linear-gradient(120deg, #0b0f14, #2f4b55 60%, #d79a3b)', image: '/media/games/drowned-bell.jpg', video: '/media/games/drowned-bell.mp4' },
   { title: 'patchlint — security linter for Dockerfiles and GitHub Actions', date: '2026.11.25', tag: 'Security', href: 'https://github.com/RubahAnomali/patchlint', cover: 'linear-gradient(120deg, #07141a, #0b7894 60%, #ff7a59)', image: '/media/projects/patchlint.jpg', video: '/media/projects/patchlint.mp4' },
   { title: 'Packet Ghost — network stealth and infiltration', date: '2026.11.25', tag: 'Game', href: 'https://github.com/RubahAnomali/packet-ghost', cover: 'linear-gradient(120deg, #0a1014, #2c6f66 60%, #ff5a3c)', image: '/media/games/packet-ghost.jpg', video: '/media/games/packet-ghost.mp4' },
   { title: 'Slingshot Salvage — orbital salvage game', date: '2026.11.10', tag: 'Game', href: 'https://github.com/RubahAnomali/slingshot-salvage', cover: 'linear-gradient(120deg, #0a2a5e, #2a6fd6 60%, #e8c25a)', image: '/media/games/slingshot-salvage.jpg', video: '/media/games/slingshot-salvage.mp4' },
@@ -317,7 +317,7 @@ export const projects: Project[] = [
     title: 'Drowned Bell',
     kind: 'Unity game',
     year: 'Nov 2026',
-    summary: 'A 2D soulslike made in Unity, two chapters long. A salvage diver silences the Undertoll, a bell with three telegraphed attacks, then follows the pressure mains through the Sluice Works to the Pump Warden. Readable wind-ups, unlockable shortcuts, and progress that saves at every lamp.',
+    summary: 'A 2D soulslike made in Unity, three chapters long. A salvage diver silences the Undertoll, a bell with three telegraphed attacks, then follows the pressure mains through the Sluice Works to the Pump Warden and descends into the Sounding Archive to face the Archivist of Depths. Heavy hits, delayed swings and bosses that fight in a different order every run. Progress saves at every lamp.',
     tags: ['Unity', 'C#', 'Pixel art', 'FSM'],
     links: [
       { label: 'Play', href: '/games/drowned-bell/' },
@@ -355,7 +355,7 @@ export const chapters: Chapter[] = [
     period: 'Nov 2026',
     role: 'Drowned Bell',
     company: 'Soulslike · Unity, C#',
-    points: ['A 2D soulslike in Unity: two seven-room chapters, four enemy types with readable wind-ups, checkpoints, unlockable shortcuts and two bosses, with save and continue.', 'Game rules in plain C# with a headless test suite, plus an autopilot bot that plays the real build from start to finish for QA.'],
+    points: ['A 2D soulslike in Unity: three chapters and twenty rooms, enemies with readable wind-ups, checkpoints, unlockable shortcuts and three bosses that pick their attacks at random, so no two saves fight alike.', 'Game rules in plain C# with a headless test suite, plus an autopilot bot that plays the real build from start to finish for QA, pixel art, synthesised sound and save and continue.'],
     image: '/media/games/drowned-bell.jpg',
   },
   {
